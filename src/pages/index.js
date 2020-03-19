@@ -1,21 +1,48 @@
-import React from "react"
-import { Link } from "gatsby"
-
+import React, { useState, useRef, useEffect } from "react"
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import Hero from "../components/sections/hero"
+import About from "../components/sections/about"
+import Products from "../components/sections/products"
+import Process from "../components/sections/process"
+import Contact from "../components/sections/contact"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const scrollToRef = (ref, offset) =>
+  window.scrollTo(0, ref.current.offsetTop - offset) // General scroll to element function
+
+const IndexPage = () => {
+  const [activeSection, setActiveSection] = useState(null)
+
+  const aboutRef = useRef(null)
+  const productsRef = useRef(null)
+  const contactRef = useRef(null)
+
+  useEffect(() => {
+    if (activeSection === "about") {
+      scrollToRef(aboutRef, 100)
+    } else if (activeSection === "products") {
+      scrollToRef(productsRef, 100)
+    } else if (activeSection === "contact") {
+      scrollToRef(contactRef, 0)
+    }
+  }, [activeSection])
+
+  return (
+    <Layout setActiveSection={setActiveSection}>
+      <SEO title="Home" />
+      <Hero />
+      <div ref={aboutRef}>
+        <About />
+      </div>
+      <Process />
+      <div ref={productsRef}>
+        <Products />
+      </div>
+      <div ref={contactRef}>
+        <Contact />
+      </div>
+    </Layout>
+  )
+}
 
 export default IndexPage
