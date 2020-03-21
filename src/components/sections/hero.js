@@ -11,11 +11,13 @@ import earthTwo from "../../images/hero/earth-2.svg"
 import cloudOne from "../../images/hero/cloud-1.svg"
 import cloudTwo from "../../images/hero/cloud-2.svg"
 import cloudThree from "../../images/hero/cloud-3.svg"
-import Theme from "../svg/theme"
+import Toggle from "../svg/toggle"
 
 const Wrapper = styled.section`
   margin: 1rem auto;
   height: 76vh;
+  min-height: 550px;
+  max-height: 1000px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -63,10 +65,14 @@ const UpperScene = styled.div`
     right: 0;
     width: calc(11.25rem / var(--divider));
   }
-  .sun {
+  .toggle {
     top: 0;
     left: 7.5rem;
     width: calc(7.5rem / var(--divider));
+    ${device.small`left: 50%; transform: translateX(-100%);`}
+  }
+  img {
+    filter: ${({ theme }) => theme.filter};
   }
 `
 
@@ -90,7 +96,7 @@ const LowerScene = styled.div`
     ${device.small`width: 10rem;`}
   }
   .cow {
-    bottom: -0.35rem;
+    bottom: -0.45rem;
     left: calc(16rem / var(--divider));
     width: calc(37.5rem / var(--divider));
     height: calc(23.75rem / var(--divider));
@@ -99,7 +105,11 @@ const LowerScene = styled.div`
   .butter {
     right: calc(25rem / var(--divider));
     width: calc(9.38rem / var(--divider));
+    filter: none;
     ${device.small`display: none;`}
+  }
+  img {
+    filter: ${({ theme }) => theme.filter};
   }
 `
 
@@ -142,7 +152,7 @@ const Hero = () => {
           alt="cloud"
           ref={cloudOneRef}
         />
-        <Theme className="sun element" />
+        <Toggle className="toggle element" />
         <img
           className="cloud-2 element"
           src={cloudTwo}

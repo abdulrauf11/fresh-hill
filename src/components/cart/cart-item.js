@@ -5,10 +5,8 @@ import crossImage from "../../images/close.svg"
 
 const Wrapper = styled.div`
   padding: 2rem 0;
-  background: ${props =>
-    props.color === "green" ? "var(--lightgreen)" : "var(--lightyellow)"};
-  transition: opacity 0.3s;
-  opacity: ${props => (props.disabled ? 0.2 : 1)};
+  background: ${({ theme }) => theme.cartBg};
+  border-bottom: 1px solid ${({ theme }) => theme.cartBorder};
   .item-wrapper {
     width: 90%;
     margin: 0 auto;
@@ -22,6 +20,7 @@ const Wrapper = styled.div`
       img {
         width: 0.75rem;
         display: block;
+        filter: ${({ theme }) => theme.filter};
       }
     }
   }

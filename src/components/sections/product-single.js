@@ -10,9 +10,10 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 260px;
   ${device.small`
-  height: ${props => (props.isImage ? "35%" : "65%")};
-  align-items: ${props => !props.isImage && "flex-start"};
+      height: auto;
+      padding: 3rem 0;
   `}
   img {
     height: 20rem;
@@ -24,7 +25,7 @@ const Container = styled.div`
     h3 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
-      ${device.small`font-size: 1.5rem; margin: 1rem 0;`}
+      ${device.small`font-size: 1.5rem;`}
     }
     p {
       ${device.small`font-size: 0.9rem;`}
@@ -43,7 +44,7 @@ const Form = styled.div`
     align-items: center;
   }
   button {
-    color: var(--black);
+    color: ${({ theme }) => theme.fg};
     font-size: 1.5rem;
     font-weight: 400;
     &.deactive {
@@ -58,14 +59,16 @@ const Form = styled.div`
       font-weight: 700;
       text-align: center;
       border: 0;
-      border-bottom: 0.0063rem solid var(--black);
+      background: transparent;
+      color: ${({ theme }) => theme.fg};
+      border-bottom: 0.0063rem solid ${({ theme }) => theme.fg};
       width: 3.13rem;
       padding: 0.1rem;
     }
     .kg {
       padding: 0.1rem;
       font-size: 1.2rem;
-      border-bottom: 0.0063rem solid var(--black);
+      border-bottom: 0.0063rem solid ${({ theme }) => theme.fg};
     }
   }
   .price {
@@ -76,11 +79,14 @@ const Form = styled.div`
 
 const AddButton = styled.button`
   margin-top: 4rem;
-  display: block;
   width: 100%;
-  color: var(--white);
-  background: var(--black);
+  display: block;
   padding: 1rem 0;
+  background: ${props =>
+    props.color === "green" ? "var(--green)" : "var(--yellow)"};
+  color: ${props =>
+    props.color === "green" ? "var(--white)" : "var(--black)"};
+  ${device.small`margin-top: 3rem;`}
 `
 
 export default function ProductSingle({ product }) {
@@ -137,7 +143,9 @@ export default function ProductSingle({ product }) {
               Rs. {amount * product.priceRange.minVariantPrice.amount}
             </div>
           </Form>
-          <AddButton onClick={handleAddToCart}>Buy Now</AddButton>
+          <AddButton onClick={handleAddToCart} color={product.color}>
+            Buy Now
+          </AddButton>
         </div>
       </Container>
     </>

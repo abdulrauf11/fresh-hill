@@ -18,7 +18,7 @@ const Overlay = styled(animated.div)`
   left: 0;
   display: flex;
   justify-content: flex-end;
-  background: rgba(0, 0, 0, 0.9);
+  background: ${({ theme }) => theme.overlay};
 `
 
 const Container = styled.div`
@@ -26,13 +26,13 @@ const Container = styled.div`
   height: 100%;
   width: 45%;
   min-width: 320px;
-  background: var(--white);
+  background: ${({ theme }) => theme.bg};
   h3 {
     position: relative;
     text-align: center;
     padding: 1rem 0;
     font-size: 1.5rem;
-    border-bottom: 0.13rem solid var(--black);
+    border-bottom: 0.13rem solid ${({ theme }) => theme.fg};
     .back {
       position: absolute;
       top: 50%;
@@ -41,6 +41,7 @@ const Container = styled.div`
       img {
         width: 1.56rem;
         display: block;
+        filter: ${({ theme }) => theme.filter};
       }
     }
   }

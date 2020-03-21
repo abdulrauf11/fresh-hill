@@ -11,6 +11,7 @@ const shimmer = keyframes`
 
 const SkeletonCart = styled.div`
   padding: 2rem 0;
+  border-bottom: 1px solid ${({ theme }) => theme.cartBorder};
   .item-wrapper {
     width: 90%;
     margin: 0 auto;
@@ -104,7 +105,9 @@ const SkeletonCheckout = styled.div`
     text-align: center;
     padding: 1rem 0;
     font-weight: 700;
-    background: rgb(50, 50, 50);
+    background: ${({ theme }) => theme.fg};
+    color: ${({ theme }) => theme.bg};
+    opacity: 0.2;
   }
 `
 

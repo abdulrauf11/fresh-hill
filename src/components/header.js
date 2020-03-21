@@ -27,7 +27,7 @@ const Logo = styled.div`
     width: 3rem;
     height: 3rem;
     border-radius: inherit;
-    background: var(--black);
+    background: ${({ theme }) => theme.fg};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,6 +35,7 @@ const Logo = styled.div`
       display: block;
       width: 70%;
       margin: 0 auto;
+      filter: ${({ theme }) => theme.filter};
     }
   }
 `
@@ -45,7 +46,7 @@ const Pages = styled.div`
   align-items: center;
   ${device.small`width: 100%;`}
   button {
-    color: var(--black);
+    color: ${({ theme }) => theme.fg};
     font-family: "Lora";
     font-weight: 400;
     font-size: 0.9rem;
@@ -74,6 +75,7 @@ const Pages = styled.div`
     svg {
       width: 1.56rem;
       height: 1.56rem;
+      filter: ${({ theme }) => theme.filter};
     }
   }
 `

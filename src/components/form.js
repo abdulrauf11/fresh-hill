@@ -21,7 +21,7 @@ const FieldWrapper = styled.div`
     display: block;
     color: var(--white);
     flex: 4;
-    background: var(--black);
+    background: transparent;
     border: 0;
     border-bottom: 0.0063rem solid var(--white);
     padding: 0.1rem;
@@ -47,10 +47,10 @@ const ButtonWrapper = styled.div`
     margin-left: auto;
     width: 40%;
     display: block;
-    background: var(--yellow);
-    color: var(--black);
     text-align: center;
     padding: 1rem 0;
+    background: var(--yellow);
+    color: var(--black);
   }
 `
 

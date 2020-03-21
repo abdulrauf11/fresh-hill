@@ -6,7 +6,6 @@ import styled from "styled-components"
 import device from "./device"
 import { StoreContext } from "../context/store"
 import ProductSingle from "./sections/product-single"
-// import cartImage from "../images/cart.svg"
 import crossImage from "../images/close.svg"
 import Bucket from "./svg/bucket"
 
@@ -18,8 +17,8 @@ const Wrapper = styled(animated.div)`
   z-index: 500;
   width: 100%;
   height: 100%;
-  background: var(--white);
-  ${device.small`display: block;`}
+  background: ${({ theme }) => theme.bg};
+  ${device.small`display: block; overflow-y: scroll;`}
 `
 
 const Header = styled.div`
@@ -41,6 +40,9 @@ const Header = styled.div`
     display: block;
     width: 1.56rem;
     height: 1.56rem;
+  }
+  svg {
+    filter: ${({ theme }) => theme.filter};
   }
   .cross {
     filter: ${props =>

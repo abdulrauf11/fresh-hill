@@ -1,17 +1,18 @@
-@import url("https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans&display=swap");
+import { createGlobalStyle } from "styled-components"
 
+export const GlobalStyles = createGlobalStyle`
 :root {
-  --black: rgb(0, 0, 0);
-  --grey: rgb(50, 50, 50);
-  --white: #fff;
-  --green: #43b060;
-  --yellow: #ffe75c;
   --limit: 1600px;
   --spread: 80%;
-  --lightgreen: rgba(67, 176, 96, 0.1);
-  --lightyellow: rgba(255, 231, 92, 0.1);
-  --skeleton: #dddbdd;
   --divider: 1.8;
+
+  --black: #1c1c23;
+  --white: #ffffff;
+  --grey: #2a2a34;
+  --lightgrey: #fafafa;
+  --green: #43b060;
+  --yellow: #ffe75c;
+  --skeleton: #dddbdd;
 }
 
 html {
@@ -35,15 +36,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
-  font-family: sans-serif;
-  font-family: "Open Sans";
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
-  color: var(--black);
   font-size: 1rem;
   margin: 0 auto;
   width: 100%;
+  background: ${({ theme }) => theme.bg};
+  color: ${({ theme }) => theme.fg};
 
-  transition: background 0.5s;
+  transition: background 0.4s ease-out;
 }
 
 p {
@@ -131,9 +132,9 @@ button {
   font-family: "Lora";
   font-weight: 700;
   text-transform: uppercase;
-  background: transparent;
   border: 0;
   padding: 0;
+  background: none;
 }
 
 h1,
@@ -187,3 +188,5 @@ h2 {
     margin: 15rem auto;
   }
 }
+
+`

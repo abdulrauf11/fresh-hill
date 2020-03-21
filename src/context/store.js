@@ -3,7 +3,7 @@ import Client from "shopify-buy"
 
 const client = Client.buildClient({
   domain: "fresh-hill.myshopify.com",
-  storefrontAccessToken: "36d741e4c9a0e809b04c97bccc0205ed",
+  storefrontAccessToken: process.env.SHOPIFY_ACCESS_TOKEN,
 })
 
 const defaultValues = {

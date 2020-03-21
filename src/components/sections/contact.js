@@ -9,9 +9,10 @@ import hillOne from "../../images/contact/hill-1.svg"
 import hillTwo from "../../images/contact/hill-2.svg"
 
 const Wrapper = styled.div`
-  background: var(--black);
+  background: ${({ theme }) => theme.contact};
   color: var(--white);
   height: 110vh;
+  min-height: 870px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,7 +48,7 @@ const Scene = styled.div`
   }
   .cloud-2 {
     width: calc(9.75rem / var(--divider));
-    top: 20%;
+    top: 15%;
     right: 0;
     ${device.small`top: 5%;`}
   }

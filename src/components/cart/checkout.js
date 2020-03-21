@@ -21,13 +21,13 @@ const CheckoutInfo = styled.div`
 
 const CheckoutButton = styled.a`
   margin-top: 2rem;
-  display: block;
   width: 100%;
-  color: var(--white);
   text-align: center;
-  background: var(--black);
-  padding: 1rem 0;
   font-weight: 700;
+  display: block;
+  padding: 1rem 0;
+  background: ${({ theme }) => theme.fg};
+  color: ${({ theme }) => theme.bg};
 `
 
 export default function Checkout({ checkout }) {

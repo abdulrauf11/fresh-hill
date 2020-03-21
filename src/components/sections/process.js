@@ -47,6 +47,7 @@ const Container = styled.div`
     svg {
       width: 70%;
       height: 100%;
+      filter: ${({ theme }) => theme.filter};
     }
   }
 `

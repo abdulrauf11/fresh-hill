@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Fresh Hill`,
@@ -37,7 +41,7 @@ module.exports = {
         // The domain name of your Shopify shop.
         shopName: `fresh-hill`,
         // The storefront access token
-        accessToken: `36d741e4c9a0e809b04c97bccc0205ed`,
+        accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
       },
     },
   ],
