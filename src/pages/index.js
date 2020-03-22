@@ -25,6 +25,7 @@ const IndexPage = () => {
     } else if (activeSection === "contact") {
       scrollToRef(contactRef, 0)
     }
+    setActiveSection(null)
   }, [activeSection])
 
   return (

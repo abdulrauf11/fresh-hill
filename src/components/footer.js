@@ -1,7 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
-import device from "./device"
 import cow from "../images/cow.svg"
 
 const Container = styled.footer`
@@ -29,7 +28,7 @@ const Logo = styled.div`
     width: calc(3.44rem * 0.79);
     height: calc(3.44rem * 0.79);
     border-radius: inherit;
-    background: var(--black);
+    background: ${({ theme }) => theme.fg};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,6 +36,7 @@ const Logo = styled.div`
       display: block;
       width: 70%;
       margin: 0 auto;
+      filter: ${({ theme }) => theme.filter};
     }
   }
 `

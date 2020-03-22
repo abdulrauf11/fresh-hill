@@ -64,7 +64,6 @@ const ModalInner = ({ setIsModalActive, product }) => {
             <img src={crossImage} alt="Close" />
           </button>
           <button className="cart" onClick={toggleCartOpen}>
-            {/* <img src={cartImage} alt="Cart" /> */}
             <Bucket />
           </button>
         </div>

@@ -28,6 +28,20 @@ const CheckoutButton = styled.a`
   padding: 1rem 0;
   background: ${({ theme }) => theme.fg};
   color: ${({ theme }) => theme.bg};
+
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid ${({ theme }) => theme.fg};
+  }
+  &:hover:after {
+    animation: fade-out 0.5s ease-out;
+  }
 `
 
 export default function Checkout({ checkout }) {

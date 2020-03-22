@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react"
 import styled from "styled-components"
 import { gsap } from "gsap"
+import { useInView } from "react-intersection-observer"
 
 const SVG = styled.svg`
   overflow: visible;
@@ -16,9 +17,11 @@ const SVG = styled.svg`
 `
 
 export default function Ghee() {
+  const [ref, inView] = useInView({ triggerOnce: true })
   const groupRef = useRef(null)
 
   useEffect(() => {
+    if (!inView) return
     gsap.to(groupRef.current, {
       duration: 1,
       y: -20,
@@ -26,7 +29,7 @@ export default function Ghee() {
       yoyo: true,
       repeatDelay: 0.5,
     })
-  }, [])
+  }, [inView])
 
   return (
     <SVG
@@ -34,6 +37,7 @@ export default function Ghee() {
       width="329.326"
       height="361.779"
       viewBox="0 0 329.326 361.779"
+      ref={ref}
     >
       <g transform="translate(-23)">
         <g ref={groupRef}>

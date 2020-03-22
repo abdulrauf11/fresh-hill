@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+import { useTransition, animated } from "react-spring"
 import { Formik, Field, Form, ErrorMessage } from "formik"
 import * as Yup from "yup"
 import device from "./device"
@@ -18,13 +19,14 @@ const FieldWrapper = styled.div`
   }
   input,
   textarea {
+    overflow-y: scroll;
     display: block;
     color: var(--white);
     flex: 4;
     background: transparent;
     border: 0;
     border-bottom: 0.0063rem solid var(--white);
-    padding: 0.1rem;
+    padding: 0.2rem;
     ${device.small`width: 100%; margin-top: 1rem;`}
   }
 
@@ -41,8 +43,7 @@ const FieldWrapper = styled.div`
   }
 `
 
-const ButtonWrapper = styled.div`
-  margin-top: 5rem;
+const ButtonWrapper = styled(animated.div)`
   button {
     margin-left: auto;
     width: 40%;
@@ -51,10 +52,50 @@ const ButtonWrapper = styled.div`
     padding: 1rem 0;
     background: var(--yellow);
     color: var(--black);
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 2px solid var(--yellow);
+    }
+    &:hover:after {
+      animation: fade-out-small 0.5s ease-out;
+    }
   }
 `
 
-const SubmitError = styled.div``
+const Message = styled(animated.div)`
+  text-align: right;
+  font-family: "Lora";
+  text-transform: uppsercase;
+  color: var(--yellow);
+  font-size: 1.2rem;
+  .error {
+    color: #932422;
+  }
+`
+
+const CTA = styled.div`
+  position: relative;
+  margin-top: 5rem;
+  padding: 1rem 0;
+  &:after {
+    content: "contact";
+    text-transform: uppercase;
+    font-family: "Lora";
+    color: transparent;
+  }
+  & > * {
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    width: 100%;
+  }
+`
 
 function encode(data) {
   return Object.keys(data)
@@ -70,10 +111,19 @@ const Schema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email")
     .required("Required"),
+  msg: Yup.string().required("Required"),
 })
 
 const ContactForm = () => {
   const [error, setError] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+
+  const transitions = useTransition(submitted, null, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0, position: "absolute" },
+  })
+
   function handleSubmit(values, setSubmitting, resetForm) {
     fetch("/", {
       method: "POST",
@@ -92,6 +142,7 @@ const ContactForm = () => {
         console.log("error")
       })
     setSubmitting(false)
+    setSubmitted(true)
   }
 
   return (
@@ -133,19 +184,36 @@ const ContactForm = () => {
           </FieldWrapper>
 
           <FieldWrapper>
-            <label htmlFor="name">Message</label>
+            <label htmlFor="msg">Message</label>
             <Field name="msg" component="textarea" rows="1" className="input" />
+            <div className="error">
+              <ErrorMessage name="msg" />
+            </div>
           </FieldWrapper>
 
-          <ButtonWrapper>
-            <button type="submit" disabled={isSubmitting}>
-              Send
-            </button>
-          </ButtonWrapper>
-
-          {error && (
-            <SubmitError>Something went wrong. Please try again!</SubmitError>
-          )}
+          <CTA>
+            {transitions.map(({ item, key, props }) =>
+              item ? (
+                <Message style={props} key={key}>
+                  {error ? (
+                    <span className="error">
+                      Something went wrong. Please try again!
+                    </span>
+                  ) : (
+                    <span className="success">
+                      Thank you! We'll get back to you soon.
+                    </span>
+                  )}
+                </Message>
+              ) : (
+                <ButtonWrapper style={props} key={key}>
+                  <button type="submit" disabled={isSubmitting}>
+                    Send
+                  </button>
+                </ButtonWrapper>
+              )
+            )}
+          </CTA>
         </Form>
       )}
     </Formik>

@@ -10,9 +10,14 @@ export const GlobalStyles = createGlobalStyle`
   --white: #ffffff;
   --grey: #2a2a34;
   --lightgrey: #fafafa;
+  --skeleton: #dddbdd;
   --green: #43b060;
   --yellow: #ffe75c;
-  --skeleton: #dddbdd;
+
+  --green-shadow: rgba(67, 176, 96, 0.1);
+  --yellow-shadow: rgba(255, 231, 92, 0.2);
+  --black-shadow: rgba(28, 28, 35, 0.2);
+  --white-shadow: rgba(255, 255, 255, 0.2);
 }
 
 html {
@@ -163,6 +168,29 @@ h2 {
 
 ::-webkit-scrollbar-thumb {
   background: var(--green);
+}
+
+
+@keyframes fade-out {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.03, 1.3);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out-small {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.06, 1.25);
+    opacity: 0;
+  }
 }
 
 @media screen and (max-width: 25rem) {

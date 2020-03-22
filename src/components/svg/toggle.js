@@ -1,6 +1,6 @@
-import React, { useRef, useEffect, useContext } from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
-import { useTransition, animated, config } from "react-spring"
+import { useTransition, animated } from "react-spring"
 import { ThemeContext } from "../../context/theme"
 
 const SVG = styled.svg`

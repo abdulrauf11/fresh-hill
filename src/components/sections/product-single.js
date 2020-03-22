@@ -86,6 +86,22 @@ const AddButton = styled.button`
     props.color === "green" ? "var(--green)" : "var(--yellow)"};
   color: ${props =>
     props.color === "green" ? "var(--white)" : "var(--black)"};
+  transition: box-shadow 0.3s;
+
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid
+      ${props => (props.color === "green" ? "var(--green)" : "var(--yellow)")};
+  }
+  &:hover:after {
+    animation: fade-out 0.5s ease-out;
+  }
   ${device.small`margin-top: 3rem;`}
 `
 

@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react"
 import styled from "styled-components"
 import { gsap } from "gsap"
+import { useInView } from "react-intersection-observer"
 
 const SVG = styled.svg`
   overflow: visible;
@@ -39,9 +40,11 @@ const SVG = styled.svg`
 `
 
 export default function Makhan() {
+  const [ref, inView] = useInView({ triggerOnce: true })
   const groupRef = useRef(null)
 
   useEffect(() => {
+    if (!inView) return
     gsap.to(groupRef.current, {
       duration: 1,
       x: 30,
@@ -49,7 +52,7 @@ export default function Makhan() {
       yoyo: true,
       repeatDelay: 0.5,
     })
-  }, [])
+  }, [inView])
 
   return (
     <SVG
@@ -57,6 +60,7 @@ export default function Makhan() {
       width="552.844"
       height="364.469"
       viewBox="0 0 552.844 364.469"
+      ref={ref}
     >
       <g transform="translate(-269.737 -4910.824)">
         <g transform="translate(-489.775 4499.343)">

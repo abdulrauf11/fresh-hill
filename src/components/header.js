@@ -7,14 +7,14 @@ import device from "./device"
 import cowImage from "../images/cow.svg"
 import Bucket from "./svg/bucket"
 
-const Container = styled.header`
+const Navbar = styled.nav`
+  padding: 1.5rem 0;
   width: var(--spread);
   max-width: var(--limit);
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 0;
   ${device.small`padding: 2rem 0; flex-direction: column;`}
 `
 const Logo = styled.div`
@@ -84,7 +84,7 @@ const Header = ({ setActiveSection }) => {
   const { toggleCartOpen } = useContext(StoreContext)
 
   return (
-    <Container>
+    <Navbar>
       <Logo>
         <Link to="/">
           <img src={cowImage} alt="Cow" />
@@ -105,7 +105,7 @@ const Header = ({ setActiveSection }) => {
           <Bucket />
         </button>
       </Pages>
-    </Container>
+    </Navbar>
   )
 }
 

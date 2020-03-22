@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import styled from "styled-components"
+import { useInView } from "react-intersection-observer"
+
 import Form from "../form"
 import device from "../device"
 import cloudOne from "../../images/contact/cloud-1.svg"
@@ -66,10 +68,13 @@ const Scene = styled.div`
 `
 
 const Contact = () => {
+  const [ref, inView] = useInView({ triggerOnce: true })
   const cloudOneRef = useRef(null)
   const cloudTwoRef = useRef(null)
 
   useEffect(() => {
+    if (!inView) return
+
     gsap.to(cloudOneRef.current, {
       duration: 3,
       x: 20,
@@ -85,11 +90,11 @@ const Contact = () => {
       ease: "linear",
       yoyo: true,
     })
-  }, [])
+  }, [inView])
 
   return (
     <Wrapper>
-      <Scene>
+      <Scene ref={ref}>
         <img
           src={cloudOne}
           className="cloud-1 element"

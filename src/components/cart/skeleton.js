@@ -120,7 +120,7 @@ function CartItem() {
         </button>
         <div className="image-wrapper skelement"></div>
         <div className="product-wrapper">
-          <h4 className="title skelement"></h4>
+          <div className="title skelement"></div>
           <div className="flex-container">
             <div className="amount skelement"></div>
             <div className="price skelement"></div>

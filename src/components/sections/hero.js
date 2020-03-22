@@ -15,9 +15,9 @@ import Toggle from "../svg/toggle"
 
 const Wrapper = styled.section`
   margin: 1rem auto;
-  height: 76vh;
-  min-height: 550px;
-  max-height: 1000px;
+  height: 78vh;
+  min-height: 480px;
+  max-height: 1020px;
   text-align: center;
   display: flex;
   justify-content: center;
