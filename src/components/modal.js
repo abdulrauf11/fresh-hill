@@ -43,6 +43,10 @@ const Header = styled.div`
   }
   svg {
     filter: ${({ theme }) => theme.filter};
+    ${device.small`
+      filter: ${props =>
+        props.color === "green" ? "brightness(0) invert(1)" : "none"};
+    `}
   }
   .cross {
     filter: ${props =>

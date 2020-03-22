@@ -30,9 +30,9 @@ export default function StepOne() {
   useEffect(() => {
     const grass = grassRef.current.children
     gsap.to(grass, {
-      duration: 1,
+      duration: 1.5,
       opacity: inView ? 1 : 0,
-      stagger: 0.3,
+      stagger: 1.5 / grass.length,
     })
   }, [inView])
 

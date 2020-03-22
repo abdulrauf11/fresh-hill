@@ -37,9 +37,7 @@ const FieldWrapper = styled.div`
     right: 0;
     color: #932422;
     font-size: 0.7rem;
-    ${device.small`
-    top: 80%;
-    `}
+    ${device.small`top: 80%;`}
   }
 `
 
@@ -53,6 +51,14 @@ const ButtonWrapper = styled(animated.div)`
     background: var(--yellow);
     color: var(--black);
     position: relative;
+    border: 2px solid var(--yellow);
+    transition: all 0.2s;
+    ${device.small`width: 100%;`}
+    &:hover {
+      background: transparent;
+      color: var(--white);
+    }
+
     &:after {
       content: "";
       position: absolute;
@@ -64,6 +70,7 @@ const ButtonWrapper = styled(animated.div)`
     }
     &:hover:after {
       animation: fade-out-small 0.5s ease-out;
+      animation-fill-mode: forwards;
     }
   }
 `

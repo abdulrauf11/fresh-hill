@@ -15,13 +15,13 @@ const Navbar = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  ${device.small`padding: 2rem 0; flex-direction: column;`}
+  ${device.small`flex-direction: column;`}
 `
 const Logo = styled.div`
   border: 0.0063rem solid var(--black);
   border-radius: 50%;
   padding: 0.19rem;
-  ${device.small`margin-bottom: 2rem;`}
+  ${device.small`margin-bottom: 1rem;`}
   a {
     display: block;
     width: 3rem;

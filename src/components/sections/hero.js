@@ -12,6 +12,7 @@ import cloudOne from "../../images/hero/cloud-1.svg"
 import cloudTwo from "../../images/hero/cloud-2.svg"
 import cloudThree from "../../images/hero/cloud-3.svg"
 import Toggle from "../svg/toggle"
+import clickHere from "../../images/click-here.svg"
 
 const Wrapper = styled.section`
   margin: 1rem auto;
@@ -22,18 +23,31 @@ const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  ${device.small`height: 65vh;`}
+  ${device.small`height: 70vh;`}
   ${device.large`margin-top: 3rem;`}
   .heading-wrapper {
-    flex: 1;
+    flex: 2;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     h1 {
+      overflow: hidden;
       font-size: 3rem;
       ${device.small`font-size: 2.5rem;`}
       ${device.large`font-size: 4rem;`}
+      .word {
+        display: inline-block;
+        &:nth-child(even) {
+          transform: translateY(-100px);
+        }
+        &:nth-child(odd) {
+          transform: translateY(100px);
+        }
+        .letter {
+          display: inline-block;
+        }
+      }
     }
     p {
       margin-top: 0.5rem;
@@ -71,6 +85,15 @@ const UpperScene = styled.div`
     width: calc(7.5rem / var(--divider));
     ${device.small`left: 50%; transform: translateX(-100%);`}
   }
+
+  .click-here {
+    top: 0;
+    left: 11rem;
+    width: 4rem;
+    ${device.small`left: 45%; top: 0rem;`}
+    ${device.large`left: 12.5rem; top: -1rem;`}
+  }
+
   img {
     filter: ${({ theme }) => theme.filter};
   }
@@ -117,6 +140,8 @@ const Hero = () => {
   const cloudOneRef = useRef(null)
   const cloudTwoRef = useRef(null)
   const cloudThreeRef = useRef(null)
+  const headingRef = useRef(null)
+
   useEffect(() => {
     gsap.to(cloudOneRef.current, {
       duration: 3,
@@ -141,7 +166,42 @@ const Hero = () => {
       ease: "linear",
       yoyo: true,
     })
+
+    const tl = gsap.timeline({
+      defaults: { duration: 0.3, ease: "slow" },
+      delay: 0.3,
+    })
+
+    const words = [...headingRef.current.children]
+    words.forEach(word => {
+      const letters = word.textContent
+        .split("")
+        .map(letter => `<span class="letter">${letter}</span>`)
+      word.innerHTML = letters.join("")
+      tl.to(word, { y: 0 })
+    })
   }, [])
+
+  function handleMouseEnter(e) {
+    const word = e.currentTarget
+    const letters = [...word.children]
+    const tl = gsap.timeline({
+      defaults: { duration: 0.2, ease: "slow" },
+      paused: true,
+      onComplete: () => tl2.play(),
+    })
+    const tl2 = gsap.timeline({
+      defaults: { duration: 0.2, ease: "slow" },
+      paused: true,
+    })
+
+    letters.forEach((letter, index) => {
+      tl.to(letter, { y: index % 2 ? -100 : 100 })
+      tl2.to(letter, { y: 0 })
+    })
+
+    tl.play()
+  }
 
   return (
     <Wrapper>
@@ -153,6 +213,11 @@ const Hero = () => {
           ref={cloudOneRef}
         />
         <Toggle className="toggle element" />
+        <img
+          className="click-here element"
+          src={clickHere}
+          alt="Enable dark mode"
+        />
         <img
           className="cloud-2 element"
           src={cloudTwo}
@@ -167,12 +232,24 @@ const Hero = () => {
         />
       </UpperScene>
       <div className="heading-wrapper">
-        <h1>Welcome to Fresh Hill</h1>
-        <p>your number one source for 100% pure "Desi Ghee" and "Makhan"</p>
+        <h1 ref={headingRef}>
+          <div className="word" onMouseEnter={handleMouseEnter}>
+            Welcome
+          </div>{" "}
+          <div className="word" onMouseEnter={handleMouseEnter}>
+            to
+          </div>{" "}
+          <div className="word" onMouseEnter={handleMouseEnter}>
+            Fresh
+          </div>{" "}
+          <div className="word" onMouseEnter={handleMouseEnter}>
+            Hill
+          </div>
+        </h1>
+        <p>Your number one source for 100% pure "Desi Ghee" and "Makhan"</p>
       </div>
       <LowerScene>
         <img className="earth-1 element" src={earthOne} alt="hill" />
-        {/* <img className="cow element" src={cow} alt="cow" /> */}
         <Cow className="cow element" />
         <img className="butter element" src={butter} alt="butter" />
         <img className="earth-2 element" src={earthTwo} alt="hill" />

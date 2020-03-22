@@ -30,6 +30,12 @@ const CheckoutButton = styled.a`
   color: ${({ theme }) => theme.bg};
 
   position: relative;
+  border: 2px solid ${({ theme }) => theme.fg};
+  transition: all 0.2s ease-out;
+  &:hover {
+    background: transparent;
+    color: ${({ theme }) => theme.fg};
+  }
   &:after {
     content: "";
     position: absolute;
@@ -41,6 +47,7 @@ const CheckoutButton = styled.a`
   }
   &:hover:after {
     animation: fade-out 0.5s ease-out;
+    animation-fill-mode: forwards;
   }
 `
 

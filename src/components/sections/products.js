@@ -47,6 +47,7 @@ const Grid = styled.div`
       margin: 4rem 0;
       height: 12.5rem;
       ${device.small`height: 8.5rem; margin: 3rem 0;`}
+      ${device.large`margin-top: 6rem;`}
     }
 
     h3 {
@@ -57,6 +58,10 @@ const Grid = styled.div`
       width: 65%;
       margin: 0.5rem auto;
       ${device.small`width: 80%;`}
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
   }
 `
@@ -123,11 +128,8 @@ const Products = () => {
           style={{ transform: props1.xy.interpolate(trans) }}
         >
           <Ghee />
-          <h3>Ghee</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna
-          </p>
+          <h3>{ghee.title}</h3>
+          <p>{ghee.description}</p>
         </a.div>
         <a.div
           className="grid-item green"
@@ -137,11 +139,8 @@ const Products = () => {
           style={{ transform: props2.xy.interpolate(trans) }}
         >
           <Makhan />
-          <h3>Makhan</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna
-          </p>
+          <h3>{makhan.title}</h3>
+          <p>{makhan.description}</p>
         </a.div>
       </Grid>
       {activeProduct && (

@@ -51,7 +51,7 @@ export default function StepTwo() {
   const humanRef = useRef(null)
   useEffect(() => {
     gsap.to(humanRef.current, {
-      duration: 1,
+      duration: 1.5,
       opacity: inView ? 1 : 0,
       x: inView ? 0 : -30,
     })

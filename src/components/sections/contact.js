@@ -113,8 +113,8 @@ const Contact = () => {
       <div className="inner-wrapper">
         <h2>Contact Us</h2>
         <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore.
+          We're here to help and answer any question you might have. Fill out
+          the form and we'll be in touch as soon as possible!
         </p>
         <div className="form-wrapper">
           <Form />

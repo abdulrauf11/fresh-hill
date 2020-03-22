@@ -60,8 +60,7 @@ const Process = () => (
         <StepOne />
         <h4>Dairy Farm</h4>
         <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore.
+          Fresh dairy products are proudly produced at our farm by our cows.
         </p>
       </div>
       <div className="path">
@@ -71,8 +70,8 @@ const Process = () => (
         <StepTwo />
         <h4>Your Doorstep</h4>
         <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore.
+          Our products arrive directly to your doorstep without any
+          contamination.
         </p>
       </div>
     </Container>

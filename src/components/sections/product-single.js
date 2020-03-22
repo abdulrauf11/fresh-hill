@@ -34,7 +34,7 @@ const Container = styled.div`
 `
 
 const Form = styled.div`
-  margin: 2rem 0;
+  margin: 4rem 0;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -86,9 +86,14 @@ const AddButton = styled.button`
     props.color === "green" ? "var(--green)" : "var(--yellow)"};
   color: ${props =>
     props.color === "green" ? "var(--white)" : "var(--black)"};
-  transition: box-shadow 0.3s;
-
   position: relative;
+  border: 2px solid
+    ${props => (props.color === "green" ? "var(--green)" : "var(--yellow)")};
+  transition: all 0.2s;
+  &:hover {
+    color: ${({ theme }) => theme.fg};
+    background: transparent;
+  }
   &:after {
     content: "";
     position: absolute;
@@ -101,8 +106,8 @@ const AddButton = styled.button`
   }
   &:hover:after {
     animation: fade-out 0.5s ease-out;
+    animation-fill-mode: forwards;
   }
-  ${device.small`margin-top: 3rem;`}
 `
 
 export default function ProductSingle({ product }) {
