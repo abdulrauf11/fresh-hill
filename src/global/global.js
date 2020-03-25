@@ -202,7 +202,7 @@ h2 {
   }
 }
 
-@media screen and (min-width: 125rem) {
+@media screen and (min-width: 112.5rem) {
   :root {
     --divider: 1.5;
   }
