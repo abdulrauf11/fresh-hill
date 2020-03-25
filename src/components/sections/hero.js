@@ -33,9 +33,8 @@ const Wrapper = styled.section`
     flex-direction: column;
     h1 {
       overflow: hidden;
-      font-size: 3rem;
-      ${device.small`font-size: 2.5rem;`}
-      ${device.large`font-size: 4rem;`}
+      font-size: 4rem;
+      ${device.small`font-size: 2rem;`}
       .word {
         display: inline-block;
         &:nth-child(even) {
@@ -51,6 +50,7 @@ const Wrapper = styled.section`
     }
     p {
       margin-top: 0.5rem;
+      ${device.small`font-size: 0.9rem;`}
     }
   }
 `
@@ -116,7 +116,7 @@ const LowerScene = styled.div`
   .earth-2 {
     right: 0;
     width: calc(25rem / var(--divider));
-    ${device.small`width: 10rem;`}
+    ${device.small`width: 10rem; z-index: -1;`}
   }
   .cow {
     bottom: -0.45rem;

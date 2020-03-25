@@ -46,7 +46,7 @@ const Scene = styled.div`
     width: calc(8.44rem / var(--divider));
     top: 30%;
     left: 0;
-    ${device.small`top: 10%;`}
+    ${device.small`top: 8%;`}
   }
   .cloud-2 {
     width: calc(9.75rem / var(--divider));
