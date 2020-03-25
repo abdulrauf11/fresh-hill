@@ -41,7 +41,7 @@ module.exports = {
         // The domain name of your Shopify shop.
         shopName: `fresh-hill`,
         // The storefront access token
-        accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+        accessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
         apiVersion: "2020-01",
         includeCollections: ["shop"],
       },
