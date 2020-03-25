@@ -92,6 +92,8 @@ export default function Cart() {
     isLoading,
   } = useContext(StoreContext)
 
+  console.log(checkout)
+
   const transitions = useTransition(isCartOpen, null, {
     from: { opacity: 0 },
     enter: { opacity: 1 },

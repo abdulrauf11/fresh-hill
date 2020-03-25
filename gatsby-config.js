@@ -42,6 +42,8 @@ module.exports = {
         shopName: `fresh-hill`,
         // The storefront access token
         accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+        apiVersion: "2020-01",
+        includeCollections: ["shop"],
       },
     },
   ],
