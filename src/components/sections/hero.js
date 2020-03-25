@@ -17,14 +17,14 @@ import clickHere from "../../images/click-here.svg"
 const Wrapper = styled.section`
   margin: 1rem auto;
   height: 78vh;
-  min-height: 480px;
+  min-height: 700px;
   max-height: 1020px;
   text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  ${device.small`height: 70vh;`}
-  ${device.large`margin-top: 3rem;`}
+  ${device.small`height: 70vh; min-height: 480px;`}
+  ${device.large`margin-top: 3rem; min-height: 1000px;`}
   .heading-wrapper {
     flex: 2;
     display: flex;
@@ -33,15 +33,17 @@ const Wrapper = styled.section`
     flex-direction: column;
     h1 {
       overflow: hidden;
-      font-size: 4rem;
+      font-size: 5vmax;
       ${device.small`font-size: 2rem;`}
+      ${device.large`font-size: 4rem;`}
       .word {
         display: inline-block;
+        opacity: 0;
         &:nth-child(even) {
-          transform: translateY(-100px);
+          transform: translateY(-100%);
         }
         &:nth-child(odd) {
-          transform: translateY(100px);
+          transform: translateY(100%);
         }
         .letter {
           display: inline-block;
@@ -168,7 +170,7 @@ const Hero = () => {
     })
 
     const tl = gsap.timeline({
-      defaults: { duration: 0.3, ease: "slow" },
+      defaults: { duration: 0.4, ease: "slow" },
       delay: 0.3,
     })
 
@@ -178,11 +180,14 @@ const Hero = () => {
         .split("")
         .map(letter => `<span class="letter">${letter}</span>`)
       word.innerHTML = letters.join("")
-      tl.to(word, { y: 0 })
+      tl.to(word, { y: 0, opacity: 1 })
     })
   }, [])
 
   function handleMouseEnter(e) {
+    if (window.innerWidth < 600) {
+      return
+    }
     const word = e.currentTarget
     const letters = [...word.children]
     const tl = gsap.timeline({
@@ -196,7 +201,7 @@ const Hero = () => {
     })
 
     letters.forEach((letter, index) => {
-      tl.to(letter, { y: index % 2 ? -100 : 100 })
+      tl.to(letter, { y: index % 2 ? "-100%" : "100%" })
       tl2.to(letter, { y: 0 })
     })
 

@@ -3,7 +3,7 @@ import { css } from "styled-components"
 export const sizes = {
   large: 1800,
   medium: 768,
-  small: 500,
+  small: 768,
 }
 // ${device.small``}
 // ${device.large``}
