@@ -98,18 +98,20 @@ export default function Cart() {
     leave: { opacity: 0 },
   })
 
-  let cart
-  if (!isLoading && checkout.lineItems.length) {
-    cart = (
-      <FilledCart
-        checkout={checkout}
-        removeProductFromCart={removeProductFromCart}
-      />
-    )
-  } else if (!isLoading && !checkout.lineItems.length) {
-    cart = <EmptyCart />
-  } else {
-    cart = <Skeleton checkout={checkout} />
+  let cart = null
+  if (!!checkout) {
+    if (!isLoading && checkout.lineItems.length) {
+      cart = (
+        <FilledCart
+          checkout={checkout}
+          removeProductFromCart={removeProductFromCart}
+        />
+      )
+    } else if (!isLoading && !checkout.lineItems.length) {
+      cart = <EmptyCart />
+    } else {
+      cart = <Skeleton checkout={checkout} />
+    }
   }
 
   return transitions.map(
