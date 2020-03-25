@@ -17,7 +17,7 @@ import clickHere from "../../images/click-here.svg"
 const Wrapper = styled.section`
   margin: 1rem auto;
   height: 78vh;
-  min-height: 700px;
+  min-height: 500px;
   max-height: 1020px;
   text-align: center;
   display: flex;
@@ -33,7 +33,7 @@ const Wrapper = styled.section`
     flex-direction: column;
     h1 {
       overflow: hidden;
-      font-size: 5vmax;
+      font-size: 4vmax;
       ${device.small`font-size: 2rem;`}
       ${device.large`font-size: 4rem;`}
       .word {
