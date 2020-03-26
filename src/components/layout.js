@@ -19,7 +19,7 @@ const Fixed = styled(animated.div)`
 `
 
 const Layout = ({ children, setActiveSection }) => {
-  const { theme, componentMounted } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
 
   const [prevScroll, setPrevScroll] = useState(0)
   const [fixed, setFixed] = useState(false)
@@ -41,8 +41,6 @@ const Layout = ({ children, setActiveSection }) => {
     enter: { opacity: 1 },
     leave: { opacity: 0 },
   })
-
-  if (!componentMounted) return null
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>

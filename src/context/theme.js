@@ -1,19 +1,19 @@
-import React, { createContext, useState, useEffect } from "react"
+import React, { createContext, useState } from "react"
 
 const defaultValues = {
   theme: "light",
   toggleTheme: () => {},
-  componentMounted: false,
+  // componentMounted: false,
 }
 
 export const ThemeContext = createContext(defaultValues)
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("light")
-  const [componentMounted, setComponentMounted] = useState(false)
+  // const [componentMounted, setComponentMounted] = useState(false)
 
   const setMode = mode => {
-    window.localStorage.setItem("theme", mode)
+    // window.localStorage.setItem("theme", mode)
     setTheme(mode)
   }
 
@@ -25,15 +25,15 @@ export const ThemeProvider = ({ children }) => {
     }
   }
 
-  useEffect(() => {
-    const localTheme = window.localStorage.getItem("theme")
-    if (localTheme) {
-      setTheme(localTheme)
-    } else {
-      setMode("light")
-    }
-    setComponentMounted(true)
-  }, [])
+  // useEffect(() => {
+  //   const localTheme = window.localStorage.getItem("theme")
+  //   if (localTheme) {
+  //     setTheme(localTheme)
+  //   } else {
+  //     setMode("light")
+  //   }
+  //   setComponentMounted(true)
+  // }, [])
 
   return (
     <ThemeContext.Provider
@@ -41,7 +41,7 @@ export const ThemeProvider = ({ children }) => {
         ...defaultValues,
         theme,
         toggleTheme,
-        componentMounted,
+        // componentMounted,
       }}
     >
       {children}
