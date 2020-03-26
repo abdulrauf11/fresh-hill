@@ -87,9 +87,7 @@ export const StoreProvider = ({ children }) => {
       // Buy Now Button Code
       // window.open(addItems.webUrl, "_blank")
       setCheckout(newCheckout)
-      // console.log(addItems.webUrl)
       setLoading(false)
-      // toggleCartOpen()
     } catch (e) {
       setLoading(false)
       console.error(e)

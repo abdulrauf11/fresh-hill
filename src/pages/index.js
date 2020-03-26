@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Hero from "../components/sections/hero"
+import Hero from "../components/sections/hero/hero"
 import About from "../components/sections/about"
 import Products from "../components/sections/products"
 import Process from "../components/sections/process"

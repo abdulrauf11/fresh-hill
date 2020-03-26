@@ -3,17 +3,17 @@ import { gsap } from "gsap"
 import styled from "styled-components"
 import loadable from "@loadable/component"
 
-import device from "../device"
+import device from "../../device"
 // Lower Scene
-import Cow from "../svg/cow.js"
-import butter from "../../images/hero/butter.svg"
-import earthOne from "../../images/hero/earth-1.svg"
-import earthTwo from "../../images/hero/earth-2.svg"
+import Cow from "../../svg/cow.js"
+import butter from "../../../images/hero/butter.svg"
+import earthOne from "../../../images/hero/earth-1.svg"
+import earthTwo from "../../../images/hero/earth-2.svg"
 // Upper Scene
-import cloudOne from "../../images/hero/cloud-1.svg"
-import cloudTwo from "../../images/hero/cloud-2.svg"
-import cloudThree from "../../images/hero/cloud-3.svg"
-import clickHere from "../../images/click-here.svg"
+import cloudOne from "../../../images/hero/cloud-1.svg"
+import cloudTwo from "../../../images/hero/cloud-2.svg"
+import cloudThree from "../../../images/hero/cloud-3.svg"
+import clickHere from "../../../images/click-here.svg"
 import Toggle from "./toggle"
 const Heading = loadable(() => import("./heading"))
 

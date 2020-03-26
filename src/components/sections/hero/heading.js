@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import styled from "styled-components"
-import device from "../device"
+import device from "../../device"
 
 const Wrapper = styled.div`
   flex: 2;

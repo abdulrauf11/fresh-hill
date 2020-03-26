@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import { useTransition, animated } from "react-spring"
-import { ThemeContext } from "../../context/theme"
+import { ThemeContext } from "../../../context/theme"
 
 const SVG = styled.svg`
   cursor: pointer;
