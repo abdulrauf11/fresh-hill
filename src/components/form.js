@@ -26,7 +26,7 @@ const FieldWrapper = styled.div`
     background: transparent;
     border: 0;
     border-bottom: 0.0063rem solid var(--white);
-    padding: 0.2rem;
+    padding: 0.1rem;
     ${device.small`width: 100%; margin-top: 1rem;`}
   }
 
@@ -58,7 +58,6 @@ const ButtonWrapper = styled(animated.div)`
       background: transparent;
       color: var(--white);
     }
-
     &:after {
       content: "";
       position: absolute;
@@ -176,7 +175,7 @@ const ContactForm = () => {
 
           <FieldWrapper>
             <label htmlFor="name">Name</label>
-            <Field type="text" name="name" className="input" />
+            <Field id="name" type="text" name="name" className="input" />
             <div className="error">
               <ErrorMessage name="name" />
             </div>
@@ -184,7 +183,7 @@ const ContactForm = () => {
 
           <FieldWrapper>
             <label htmlFor="email">Email</label>
-            <Field type="email" name="email" className="input" />
+            <Field id="email" type="email" name="email" className="input" />
             <div className="error">
               <ErrorMessage name="email" />
             </div>
@@ -192,7 +191,13 @@ const ContactForm = () => {
 
           <FieldWrapper>
             <label htmlFor="msg">Message</label>
-            <Field name="msg" component="textarea" rows="1" className="input" />
+            <Field
+              id="msg"
+              name="msg"
+              component="textarea"
+              rows="1"
+              className="input"
+            />
             <div className="error">
               <ErrorMessage name="msg" />
             </div>

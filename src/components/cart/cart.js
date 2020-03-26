@@ -119,7 +119,11 @@ export default function Cart() {
         <Overlay key={key} style={props}>
           <Container>
             <h3>
-              <button className="back" onClick={toggleCartOpen}>
+              <button
+                aria-label="Close"
+                className="back"
+                onClick={toggleCartOpen}
+              >
                 <img src={arrowImage} alt="close cart" />
               </button>
               My Bucket

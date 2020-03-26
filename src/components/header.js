@@ -101,7 +101,7 @@ const Header = ({ setActiveSection }) => {
         <button className="link" onClick={() => setActiveSection("contact")}>
           Contact
         </button>
-        <button onClick={toggleCartOpen}>
+        <button onClick={toggleCartOpen} aria-label="Cart">
           <Bucket />
         </button>
       </Pages>

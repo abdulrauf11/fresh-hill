@@ -60,7 +60,11 @@ export default function CartItem({ item, removeProductFromCart }) {
   return (
     <Wrapper color={item.title === "Ghee" ? "yellow" : "green"}>
       <div className="item-wrapper">
-        <button className="cross" onClick={handleRemoveFromCart}>
+        <button
+          aria-label="Close"
+          className="cross"
+          onClick={handleRemoveFromCart}
+        >
           <img src={crossImage} alt="remove cart item" />
         </button>
         <div className="image-wrapper">

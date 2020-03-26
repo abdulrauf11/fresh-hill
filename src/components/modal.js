@@ -64,10 +64,14 @@ const ModalInner = ({ setIsModalActive, product }) => {
     <>
       <Header color={product.color}>
         <div className="container">
-          <button className="cross" onClick={() => setIsModalActive(false)}>
+          <button
+            aria-label="Close"
+            className="cross"
+            onClick={() => setIsModalActive(false)}
+          >
             <img src={crossImage} alt="Close" />
           </button>
-          <button className="cart" onClick={toggleCartOpen}>
+          <button aria-label="Cart" className="cart" onClick={toggleCartOpen}>
             <Bucket />
           </button>
         </div>
