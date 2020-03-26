@@ -19,7 +19,6 @@ const FieldWrapper = styled.div`
   }
   input,
   textarea {
-    overflow-y: scroll;
     display: block;
     color: var(--white);
     flex: 4;
@@ -28,6 +27,10 @@ const FieldWrapper = styled.div`
     border-bottom: 0.0063rem solid var(--white);
     padding: 0.1rem;
     ${device.small`width: 100%; margin-top: 1rem;`}
+  }
+
+  text-area {
+    overflow: visible;
   }
 
   .error {

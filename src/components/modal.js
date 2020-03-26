@@ -1,13 +1,14 @@
 import React, { useState, useContext, useEffect } from "react"
 import { createPortal } from "react-dom"
 import { useTransition, animated } from "react-spring"
+import loadable from "@loadable/component"
 
 import styled from "styled-components"
 import device from "./device"
 import { StoreContext } from "../context/store"
-import ProductSingle from "./sections/product-single"
 import crossImage from "../images/close.svg"
 import Bucket from "./svg/bucket"
+const ProductSingle = loadable(() => import("./sections/product-single"))
 
 const Wrapper = styled(animated.div)`
   display: flex;

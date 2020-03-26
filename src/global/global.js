@@ -177,7 +177,7 @@ h2 {
     opacity: 1;
   }
   to {
-    transform: scale(1.03, 1.3);
+    transform: scale(1.045, 1.45);
     opacity: 0;
   }
 }
@@ -188,7 +188,7 @@ h2 {
     opacity: 1;
   }
   to {
-    transform: scale(1.06, 1.25);
+    transform: scale(1.09, 1.45);
     opacity: 0;
   }
 }

@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useContext } from "react"
 import { useTransition, animated } from "react-spring"
 import styled, { ThemeProvider } from "styled-components"
+import loadable from "@loadable/component"
 
 import Header from "./header"
 import Footer from "./footer"
-import Cart from "./cart/cart"
 import { ThemeContext } from "../context/theme"
 import { lightTheme, darkTheme } from "../global/theme"
 import { GlobalStyles } from "../global/global"
+const Cart = loadable(() => import("./cart/cart"))
 
 const Fixed = styled(animated.div)`
   position: fixed;
