@@ -93,7 +93,7 @@ const CTA = styled.div`
   margin-top: 5rem;
   padding: 1rem 0;
   &:after {
-    content: "contact";
+    content: "contact-us";
     text-transform: uppercase;
     font-family: "Lora";
     color: transparent;
@@ -138,7 +138,7 @@ const ContactForm = () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": "contact",
+        "form-name": "contact-us",
         ...values,
       }),
     })
@@ -169,13 +169,13 @@ const ContactForm = () => {
       {({ isSubmitting }) => (
         <Form
           method="post"
-          name="contact"
+          name="contact-us"
           action="#"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
           <input type="hidden" name="bot-field" />
-          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="form-name" value="contact-us" />
 
           <FieldWrapper>
             <label htmlFor="name">Name</label>
@@ -230,9 +230,6 @@ const ContactForm = () => {
               )
             )}
           </CTA>
-          <button type="submit" disabled={isSubmitting}>
-            Send
-          </button>
         </Form>
       )}
     </Formik>
