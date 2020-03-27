@@ -74,7 +74,6 @@ const Contact = () => {
 
   useEffect(() => {
     if (!inView) return
-
     gsap.to(cloudOneRef.current, {
       duration: 3,
       x: 20,
@@ -82,7 +81,6 @@ const Contact = () => {
       ease: "linear",
       yoyo: true,
     })
-
     gsap.to(cloudTwoRef.current, {
       duration: 3,
       x: -20,

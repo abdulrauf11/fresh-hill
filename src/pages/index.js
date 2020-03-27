@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from "react"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Hero from "../components/sections/hero/hero"
 import About from "../components/sections/about"
-import Products from "../components/sections/products"
 import Process from "../components/sections/process"
-import Contact from "../components/sections/contact"
+import Products from "../components/sections/products"
+import Contact from "../components/sections/contact/contact"
 
 const scrollToRef = (ref, offset) =>
   window.scrollTo(0, ref.current.offsetTop - offset) // General scroll to element function

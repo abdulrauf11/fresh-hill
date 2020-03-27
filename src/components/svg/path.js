@@ -13,7 +13,7 @@ const SVG = styled.svg`
   }
 `
 export default function Path() {
-  const [ref, inView] = useInView({ triggerOnce: true })
+  const [ref, inView] = useInView({ triggerOnce: false })
 
   const pathRef = useRef(null)
 

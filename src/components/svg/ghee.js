@@ -1,7 +1,22 @@
-import React, { useRef, useEffect } from "react"
-import styled from "styled-components"
-import { gsap } from "gsap"
+import React from "react"
+import styled, { keyframes, css } from "styled-components"
 import { useInView } from "react-intersection-observer"
+
+const moveUp = keyframes`
+    0% {
+        transform: translate3d(0,0,0);
+    }
+    50% {
+      transform: translate3d(0,0,0);
+    }
+    to {
+        transform: translate3d(0,-20px,0);
+    }
+`
+
+const animation = css`
+  ${moveUp} 1.5s ease-out 0s infinite alternate;
+`
 
 const SVG = styled.svg`
   overflow: visible;
@@ -14,22 +29,13 @@ const SVG = styled.svg`
   .b {
     fill: #43b060;
   }
+  .animated-group {
+    animation: ${props => (props.inView ? animation : "none")};
+  }
 `
 
 export default function Ghee() {
-  const [ref, inView] = useInView({ triggerOnce: true })
-  const groupRef = useRef(null)
-
-  useEffect(() => {
-    if (!inView) return
-    gsap.to(groupRef.current, {
-      duration: 1,
-      y: -20,
-      repeat: -1,
-      yoyo: true,
-      repeatDelay: 0.5,
-    })
-  }, [inView])
+  const [ref, inView] = useInView({ triggerOnce: false })
 
   return (
     <SVG
@@ -38,9 +44,10 @@ export default function Ghee() {
       height="361.779"
       viewBox="0 0 329.326 361.779"
       ref={ref}
+      inView={inView}
     >
       <g transform="translate(-23)">
-        <g ref={groupRef}>
+        <g className="animated-group">
           <path
             className="a"
             d="M60.727,54.855H292.654V67.743H60.727Z"

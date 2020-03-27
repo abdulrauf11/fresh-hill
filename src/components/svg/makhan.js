@@ -1,7 +1,22 @@
-import React, { useRef, useEffect } from "react"
-import styled from "styled-components"
-import { gsap } from "gsap"
+import React from "react"
+import styled, { keyframes, css } from "styled-components"
 import { useInView } from "react-intersection-observer"
+
+const moveRight = keyframes`
+    0% {
+        transform: translate3d(0,0,0);
+    }
+    50% {
+      transform: translate3d(0,0,0);
+    }
+    to {
+        transform: translate3d(30px,0px,0);
+    }
+`
+
+const animation = css`
+  ${moveRight} 1.5s ease-out 0s infinite alternate;
+`
 
 const SVG = styled.svg`
   overflow: visible;
@@ -37,22 +52,13 @@ const SVG = styled.svg`
   .e {
     fill: #feea78;
   }
+  .animated-group {
+    animation: ${props => (props.inView ? animation : "none")};
+  }
 `
 
 export default function Makhan() {
-  const [ref, inView] = useInView({ triggerOnce: true })
-  const groupRef = useRef(null)
-
-  useEffect(() => {
-    if (!inView) return
-    gsap.to(groupRef.current, {
-      duration: 1,
-      x: 30,
-      repeat: -1,
-      yoyo: true,
-      repeatDelay: 0.5,
-    })
-  }, [inView])
+  const [ref, inView] = useInView({ triggerOnce: false })
 
   return (
     <SVG
@@ -61,6 +67,7 @@ export default function Makhan() {
       height="364.469"
       viewBox="0 0 552.844 364.469"
       ref={ref}
+      inView={inView}
     >
       <g transform="translate(-269.737 -4910.824)">
         <g transform="translate(-489.775 4499.343)">
@@ -119,7 +126,7 @@ export default function Makhan() {
             d="M939.573,486.874,1017.8,531.44l50.246,27.245s20.048,7.925,22.277,23.128-13.261,18.327-13.261,18.327-11.731,5.184-46.781-4.894l-5.113-1.969"
             transform="translate(67.736 28.427)"
           />
-          <g ref={groupRef}>
+          <g className="animated-group">
             <path
               className="b"
               d="M1036.922,610.656l.376.557c1.686-1.152,3.769-1.99,4.977-3.519a58.305,58.305,0,0,0,7.318-10.868c5.206-11.049,7.849-22.6,5.023-34.88a47.211,47.211,0,0,0-18.085-27.929c-11.792-8.884-25.493-12.5-39.854-14.309-11.051-1.39-22.068-.355-33.106.166a451.288,451.288,0,0,1-55.877-.857c-6.621-.508-13.237-1.48-19.858-1.494-13.082-.029-22.784,8.743-24.443,21.724a126.6,126.6,0,0,0-.894,13.613q-.414,21.671-.569,43.346c-.04,6.719,1.126,8.059,7.781,8.537,12.386.888,24.783,1.763,37.191,2.194,28.244.981,56.489.521,84.724-.584a3.5,3.5,0,0,0,2.191-1.191c2.344-2.708,4.311-5.793,6.89-8.238,6.832-6.476,13.564-13.03,18.446-21.148,6.084-10.12,6.612-18.413-1.9-27.911-3.505-3.913-7.651-7.253-11.138-10.511a48.705,48.705,0,0,1,13.678,10.081c8.4,8.859,9.527,17.592,3.62,29.138-3.768,7.367-9.744,13.008-15.463,18.851a62.853,62.853,0,0,0-8.339,10.139c-2.733,4.326-1.511,7.882,2.731,10.728,5.155,3.458,10.79,3.849,16.63,2.531,11.083-2.5,17.922-9.918,22.579-19.789.373-.792.709-1.6,1.063-2.4A25.13,25.13,0,0,1,1036.922,610.656Z"

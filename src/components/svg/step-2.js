@@ -1,6 +1,5 @@
-import React, { useRef, useEffect } from "react"
+import React, { useRef } from "react"
 import styled from "styled-components"
-import { gsap } from "gsap"
 import { useInView } from "react-intersection-observer"
 
 const SVG = styled.svg`
@@ -45,17 +44,17 @@ const SVG = styled.svg`
   .i {
     stroke: #151539;
   }
+
+  .human {
+    transition: all 1.5s;
+    opacity: ${props => (props.inView ? 1 : 0)};
+    transform: ${props =>
+      props.inView ? "translate3d(0px,0,0)" : "translate3d(-30px,0,0)"};
+  }
 `
 export default function StepTwo() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.5 })
   const humanRef = useRef(null)
-  useEffect(() => {
-    gsap.to(humanRef.current, {
-      duration: 1.5,
-      opacity: inView ? 1 : 0,
-      x: inView ? 0 : -30,
-    })
-  }, [inView])
 
   return (
     <SVG
@@ -63,6 +62,7 @@ export default function StepTwo() {
       height="473.345"
       viewBox="0 0 369.401 473.345"
       ref={ref}
+      inView={inView}
     >
       <g transform="translate(-1197.831 -2820.053)">
         <g transform="translate(-25.499 103.2)">
@@ -132,7 +132,7 @@ export default function StepTwo() {
               transform="translate(164.15 1.78)"
             />
 
-            <g ref={humanRef}>
+            <g ref={humanRef} className="human">
               <path
                 className="b"
                 d="M711.851,266.939s-7.6,0-9.353,10.522-3.507,45.594-3.507,45.594S674.44,355.2,678.532,359.3s8.768,11.691,11.691,10.522,28.058-35.657,28.058-35.657Z"
