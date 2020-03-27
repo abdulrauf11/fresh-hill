@@ -144,11 +144,10 @@ const ContactForm = () => {
     })
       .then(() => {
         resetForm()
-        console.log("submitted")
       })
       .catch(() => {
         setError(true)
-        console.log("error")
+        console.error("error")
       })
     setSubmitting(false)
     setSubmitted(true)
@@ -170,6 +169,7 @@ const ContactForm = () => {
         <Form
           method="post"
           name="contact"
+          action="#"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
