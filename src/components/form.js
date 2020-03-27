@@ -93,7 +93,7 @@ const CTA = styled.div`
   margin-top: 5rem;
   padding: 1rem 0;
   &:after {
-    content: "contact-us";
+    content: "contact";
     text-transform: uppercase;
     font-family: "Lora";
     color: transparent;
@@ -138,7 +138,7 @@ const ContactForm = () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": "contact-us",
+        "form-name": "contact",
         ...values,
       }),
     })
@@ -148,7 +148,7 @@ const ContactForm = () => {
       })
       .catch(() => {
         setError(true)
-        console.error("error")
+        console.log("error")
       })
     setSubmitting(false)
     setSubmitted(true)
@@ -169,13 +169,12 @@ const ContactForm = () => {
       {({ isSubmitting }) => (
         <Form
           method="post"
-          name="contact-us"
-          action="#"
+          name="contact"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
           <input type="hidden" name="bot-field" />
-          <input type="hidden" name="form-name" value="contact-us" />
+          <input type="hidden" name="form-name" value="contact" />
 
           <FieldWrapper>
             <label htmlFor="name">Name</label>
