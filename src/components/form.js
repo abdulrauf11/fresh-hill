@@ -144,6 +144,7 @@ const ContactForm = () => {
     })
       .then(() => {
         resetForm()
+        console.log("submitted")
       })
       .catch(() => {
         setError(true)
