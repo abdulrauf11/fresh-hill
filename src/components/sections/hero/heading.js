@@ -55,19 +55,21 @@ export default function Heading() {
     }
     const word = e.currentTarget
     const letters = [...word.children]
-    const tl = gsap.timeline({
-      defaults: { duration: 0.2, ease: "slow" },
-      paused: true,
-      onComplete: () => tl2.play(),
-    })
+
     const tl2 = gsap.timeline({
       defaults: { duration: 0.2, ease: "slow" },
       paused: true,
     })
 
+    const tl = gsap.timeline({
+      defaults: { duration: 0.2, ease: "slow" },
+      paused: true,
+      onComplete: () => tl2.play(),
+    })
+
     letters.forEach((letter, index) => {
       tl.to(letter, { y: index % 2 ? "-100%" : "100%" })
-      tl2.to(letter, { y: 0 })
+      tl2.to(letter, { y: "0%" })
     })
 
     tl.play()

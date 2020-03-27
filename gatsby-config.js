@@ -7,8 +7,10 @@ module.exports = {
     title: `Fresh Hill`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@rauftech`,
+    siteUrl: `https://www.fresh-hill.netlify.com`,
   },
   plugins: [
+    `gatsby-plugin-robots-txt`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
