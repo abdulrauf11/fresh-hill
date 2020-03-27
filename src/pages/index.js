@@ -1,12 +1,18 @@
 import React, { useState, useRef, useEffect } from "react"
+import loadable from "@loadable/component"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Hero from "../components/sections/hero/hero"
-import About from "../components/sections/about"
-import Process from "../components/sections/process"
-import Products from "../components/sections/products"
-import Contact from "../components/sections/contact/contact"
+// import Hero from "../components/sections/hero/hero"
+// import About from "../components/sections/about"
+// import Process from "../components/sections/process"
+// import Products from "../components/sections/products"
+// import Contact from "../components/sections/contact/contact"
+const Hero = loadable(() => import("../components/sections/hero/hero"))
+const About = loadable(() => import("../components/sections/about"))
+const Process = loadable(() => import("../components/sections/process"))
+const Products = loadable(() => import("../components/sections/products"))
+const Contact = loadable(() => import("../components/sections/contact/contact"))
 
 const scrollToRef = (ref, offset) =>
   window.scrollTo(0, ref.current.offsetTop - offset) // General scroll to element function
