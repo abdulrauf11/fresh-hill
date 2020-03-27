@@ -230,6 +230,9 @@ const ContactForm = () => {
               )
             )}
           </CTA>
+          <button type="submit" disabled={isSubmitting}>
+            Send
+          </button>
         </Form>
       )}
     </Formik>

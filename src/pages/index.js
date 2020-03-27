@@ -6,7 +6,6 @@ import About from "../components/sections/about"
 import Process from "../components/sections/process"
 import Products from "../components/sections/products"
 import Contact from "../components/sections/contact/contact"
-import Form from "../components/form"
 
 const scrollToRef = (ref, offset) =>
   window.scrollTo(0, ref.current.offsetTop - offset) // General scroll to element function
@@ -32,7 +31,6 @@ const IndexPage = () => {
   return (
     <Layout setActiveSection={setActiveSection}>
       <SEO title="Home" />
-      <Form />
       <Hero />
       <div ref={aboutRef}>
         <About />
