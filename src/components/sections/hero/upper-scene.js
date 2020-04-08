@@ -47,14 +47,14 @@ const Wrapper = styled.div`
     bottom: 0;
     width: calc(7.5rem / var(--divider));
     animation: ${props => (props.inView ? animationLeft : "none")};
-    ${device.small`bottom: 30%;`}
+    ${device.medium`bottom: 30%;`}
   }
   .cloud-2 {
     top: 0;
     right: calc(11.25rem + 6.25rem);
     width: calc(8.75rem / var(--divider));
     animation: ${props => (props.inView ? animationLeft : "none")};
-    ${device.small`display: none;`}
+    ${device.medium`display: none;`}
   }
   .cloud-3 {
     top: 50%;
@@ -67,13 +67,13 @@ const Wrapper = styled.div`
     top: 0;
     left: 7.5rem;
     width: calc(7.5rem / var(--divider));
-    ${device.small`left: 50%; transform: translateX(-100%);`}
+    ${device.medium`left: 50%; transform: translateX(-100%);`}
   }
   .click-here {
     top: 0;
     left: 11rem;
     width: 4rem;
-    ${device.small`left: 45%; top: 0rem;`}
+    ${device.medium`left: 50%; top: 0rem;`}
     ${device.large`left: 12.5rem; top: -1rem;`}
   }
   img {

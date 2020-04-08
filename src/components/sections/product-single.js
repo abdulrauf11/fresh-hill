@@ -17,10 +17,12 @@ const Container = styled.div`
   `}
   img {
     height: 20rem;
+    ${device.medium`height: 12rem;`}
     ${device.small`height: 10rem;`}
   }
   .wrapper {
     width: 70%;
+    ${device.medium`width: 80%;`}
     ${device.small`width: var(--spread);`}
     h3 {
       font-size: 1.5rem;

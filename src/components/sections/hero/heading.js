@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   h1 {
     overflow: hidden;
-    font-size: 4vmax;
+    font-size: 4vw;
     ${device.small`font-size: 2rem;`}
     ${device.large`font-size: 4rem;`}
       .word {
@@ -50,7 +50,7 @@ export default function Heading() {
   }, [])
 
   function handleMouseEnter(e) {
-    if (window.innerWidth < 600) {
+    if (window.innerWidth < 1100) {
       return
     }
     const word = e.currentTarget

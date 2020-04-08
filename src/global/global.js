@@ -193,12 +193,18 @@ h2 {
   }
 }
 
-@media screen and (max-width: 25rem) {
+@media screen and (max-width: 40.625rem) {
+  section {
+    margin: 10rem auto;
+  }
+}
+
+@media screen and (max-width: 68.75rem) {
   :root {
     --divider: 2;
   }
   section {
-    margin: 10rem auto;
+    margin: 12rem auto;
   }
 }
 

@@ -17,7 +17,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 3.13rem;
-  ${device.small`grid-template-columns: 1fr;`}
+  ${device.medium`grid-template-columns: 1fr;`}
   .grid-item {
     cursor: pointer;
     height: 90vh;

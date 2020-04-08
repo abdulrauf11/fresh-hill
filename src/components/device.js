@@ -2,8 +2,8 @@ import { css } from "styled-components"
 
 export const sizes = {
   large: 1800,
-  medium: 768,
-  small: 768,
+  medium: 1100,
+  small: 650,
 }
 // ${device.small``}
 // ${device.large``}

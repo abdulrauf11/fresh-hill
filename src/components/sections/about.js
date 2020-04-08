@@ -9,6 +9,7 @@ const Wrapper = styled.section`
     font-size: 1.45rem;
     width: 70%;
     line-height: 1.8;
+    ${device.medium`width: 90%;`}
     ${device.small`width: 100%; font-size: 1.2rem;`}
   }
 `

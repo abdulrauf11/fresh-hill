@@ -10,15 +10,18 @@ const Wrapper = styled.div`
   color: var(--white);
   height: 110vh;
   min-height: 870px;
+  max-height: 1080px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  ${device.large`max-height: 1400px;`}
   .inner-wrapper {
     position: relative;
     z-index: 1;
     width: 40%;
     margin: 0 auto;
+    ${device.medium`width: 70%;`}
     ${device.small`width: var(--spread);`}
   }
   p {

@@ -13,9 +13,10 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2rem 0;
-  ${device.small`width: 100%;`}
+  ${device.medium`width: 100%;`}
   .step {
     width: 15rem;
+    ${device.medium`width: 12rem;`}
     ${device.small`width: 100%;`}
     &.top, &.left {
       grid-column: 1 / 2;

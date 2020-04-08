@@ -12,13 +12,13 @@ const Wrapper = styled.section`
   margin: 1rem auto;
   height: 78vh;
   min-height: 500px;
-  max-height: 1020px;
+  max-height: 700px;
   text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
   ${device.small`height: 70vh; min-height: 480px;`}
-  ${device.large`margin-top: 3rem; min-height: 1000px;`}
+  ${device.large`margin-top: 3rem; max-height: 1020px;`}
     p {
       margin-top: 0.5rem;
       ${device.small`font-size: 0.9rem;`}
