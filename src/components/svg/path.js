@@ -5,12 +5,6 @@ import { useInView } from "react-intersection-observer"
 
 const SVG = styled.svg`
   overflow: visible;
-  .a {
-    fill: none;
-    stroke: #000;
-    stroke-width: 2px;
-    stroke-dasharray: 10;
-  }
 `
 export default function Path() {
   const [ref, inView] = useInView({ triggerOnce: false })
@@ -34,12 +28,14 @@ export default function Path() {
         width="864.635"
         height="249.769"
         viewBox="0 0 864.635 249.769"
-        ref={pathRef}
       >
         <path
-          className="a"
-          d="M1364.654,2298.163V2174.611H502.018V2048.395"
-          transform="translate(1365.654 2298.163) rotate(180)"
+          ref={pathRef}
+          d="M1 0v123.552h862.636v126.216"
+          fill="none"
+          stroke="#000"
+          stroke-width="2"
+          stroke-dasharray="10"
         />
       </SVG>
     </div>

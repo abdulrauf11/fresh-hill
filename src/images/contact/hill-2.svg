@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400.269" height="120.299" viewBox="0 0 400.269 120.299"><defs><style>.a{fill:none;stroke:#43b060;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g transform="translate(1.009 1.008)"><g transform="translate(0 0)"><path class="a" d="M463.264,1242.568s-38.579-49.074-45.146-67.836-26.032-53.788-52.415-50.638-76.8,64.1-104.835,70.177-38.912,9.109-75.035,23.162-35.3,25.135-35.3,25.135" transform="translate(-64.791 -1123.895)"/><path class="a" d="M317.443,1242.553s-1-30.5,44.009-42.54,69-31.745,88.2-46.521,71.578-1.953,99.251,17.469" transform="translate(-317.441 -1123.88)"/></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="400.269" height="120.299">
+  <defs>
+    <style>
+      .a{fill:none;stroke:#43b060;stroke-miterlimit:10;stroke-width:2px}
+    </style>
+  </defs>
+  <path class="a" d="M399.482 119.681s-38.579-49.074-45.146-67.836-26.032-53.788-52.415-50.638-76.8 64.1-104.835 70.177-38.912 9.109-75.035 23.162-35.3 25.135-35.3 25.135"/>
+  <path class="a" d="M1.011 119.681s-1-30.5 44.009-42.54 69-31.745 88.2-46.521 71.578-1.953 99.251 17.469"/>
+</svg>
