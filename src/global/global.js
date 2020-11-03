@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
 :root {
-  --limit: 1600px;
+  --limit: 1200px;
   --spread: 80%;
   --divider: 1.6;
 
