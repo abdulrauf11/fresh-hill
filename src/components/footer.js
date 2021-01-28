@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
-import cow from "../images/cow.svg"
+import cow from "../images/logo.svg"
 
 const Container = styled.footer`
   width: var(--spread);
@@ -20,23 +20,13 @@ const Container = styled.footer`
 const Logo = styled.div`
   margin: 2rem 0;
   display: inline-block;
-  border: 0.0063rem solid var(--black);
-  border-radius: 50%;
-  padding: 0.19rem;
   a {
     display: block;
-    width: calc(3.44rem * 0.79);
-    height: calc(3.44rem * 0.79);
-    border-radius: inherit;
-    background: ${({ theme }) => theme.fg};
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: calc(4.44rem * 0.79);
+    height: calc(4.44rem * 0.79);
     img {
       display: block;
-      width: 70%;
-      margin: 0 auto;
-      filter: ${({ theme }) => theme.filter};
+      width: 100%;
     }
   }
 `
@@ -60,7 +50,7 @@ const Footer = () => (
       </Link>
     </Logo>
     <div className="copyright">
-      © Copyright {new Date().getFullYear()} Fresh Hill. All rights reserved
+      © Copyright {new Date().getFullYear()} Bin Aziz. All rights reserved
     </div>
   </Container>
 )

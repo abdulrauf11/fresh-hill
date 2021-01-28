@@ -68,8 +68,8 @@ export default function Heading() {
     })
 
     letters.forEach((letter, index) => {
-      tl.to(letter, { y: index % 2 ? "-100%" : "100%" })
-      tl2.to(letter, { y: "0%" })
+      tl.to(letter, { y: index % 2 ? "-100%" : "100%" }, "-=0.1")
+      tl2.to(letter, { y: "0%" }, "-=0.1")
     })
 
     tl.play()
@@ -85,10 +85,10 @@ export default function Heading() {
           to
         </div>{" "}
         <div className="word" onMouseEnter={handleMouseEnter}>
-          Fresh
+          Bin
         </div>{" "}
         <div className="word" onMouseEnter={handleMouseEnter}>
-          Hill
+          Aziz
         </div>
       </h1>
       <p>Your number one source for 100% pure "Desi Ghee" and "Makhan"</p>

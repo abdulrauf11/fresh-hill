@@ -26,8 +26,8 @@ const Wrapper = styled.div`
   }
   .image-wrapper {
     width: 7.5rem;
-    height: 7.5rem;
-    ${device.small`width: 5rem; height: 5rem;`}
+    height: auto;
+    ${device.small`width: 5rem;`}
     img {
       display: block;
       width: 100%;

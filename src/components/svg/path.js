@@ -34,8 +34,8 @@ export default function Path() {
           d="M1 0v123.552h862.636v126.216"
           fill="none"
           stroke="#000"
-          stroke-width="2"
-          stroke-dasharray="10"
+          strokeWidth="2"
+          strokeDasharray="10"
         />
       </SVG>
     </div>

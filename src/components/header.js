@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 import { StoreContext } from "../context/store"
 import device from "./device"
-import cowImage from "../images/cow.svg"
+import cowImage from "../images/logo.svg"
 import Bucket from "./svg/bucket"
 
 const Navbar = styled.nav`
@@ -18,24 +18,13 @@ const Navbar = styled.nav`
   ${device.small`flex-direction: column;`}
 `
 const Logo = styled.div`
-  border: 0.0063rem solid var(--black);
-  border-radius: 50%;
-  padding: 0.19rem;
-  ${device.small`margin-bottom: 1rem;`}
   a {
     display: block;
-    width: 3rem;
-    height: 3rem;
-    border-radius: inherit;
-    background: ${({ theme }) => theme.fg};
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 4rem;
+
     img {
       display: block;
-      width: 70%;
-      margin: 0 auto;
-      filter: ${({ theme }) => theme.filter};
+      width: 100%;
     }
   }
 `

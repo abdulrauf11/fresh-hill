@@ -82,7 +82,7 @@ const Products = () => {
               shopifyId
             }
             title
-            description
+            descriptionHtml
             priceRange {
               minVariantPrice {
                 amount
@@ -106,11 +106,11 @@ const Products = () => {
   // springs
   const [props1, set1] = useSpring(() => ({
     xy: [0, 0],
-    config: { mass: 5, tension: 350, friction: 40 },
+    config: { mass: 8, tension: 350, friction: 40 },
   }))
   const [props2, set2] = useSpring(() => ({
     xy: [0, 0],
-    config: { mass: 5, tension: 350, friction: 40 },
+    config: { mass: 8, tension: 350, friction: 40 },
   }))
   //
 

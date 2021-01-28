@@ -1,39 +1,7 @@
 import React, { useState, useContext } from "react"
 import styled from "styled-components"
 
-import device from "../device"
-import { StoreContext } from "../../context/store"
-
-const Container = styled.div`
-  flex: 1;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 260px;
-  ${device.small`
-      height: auto;
-      padding: 3rem 0;
-  `}
-  img {
-    height: 20rem;
-    ${device.medium`height: 12rem;`}
-    ${device.small`height: 10rem;`}
-  }
-  .wrapper {
-    width: 70%;
-    ${device.medium`width: 80%;`}
-    ${device.small`width: var(--spread);`}
-    h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      ${device.small`font-size: 1.5rem;`}
-    }
-    p {
-      ${device.small`font-size: 0.9rem;`}
-    }
-  }
-`
+import { StoreContext } from "../../../context/store"
 
 const Form = styled.div`
   margin: 4rem 0;
@@ -128,49 +96,37 @@ export default function ProductSingle({ product }) {
 
   return (
     <>
-      <Container
-        isImage={true}
-        style={{ background: `var(--${product.color}` }}
-      >
-        <img src={product.image} alt="Product" />
-      </Container>
-      <Container>
-        <div className="wrapper">
-          <h3>{product.title}</h3>
-          <p>{product.description}</p>
-          <Form>
-            <div className="field">
-              <button
-                className={`minus ${parseInt(amount) <= 1 ? "deactive" : null}`}
-                onClick={() => setAmount(parseInt(amount) - 1)}
-              >
-                -
-              </button>
-              <div className="input-wrapper">
-                <input
-                  name="amount"
-                  type="text"
-                  value={amount}
-                  onChange={handleChange}
-                />
-                <span className="kg">kg</span>
-              </div>
-              <button
-                className={`plus ${parseInt(amount) >= 5 ? "deactive" : null}`}
-                onClick={() => setAmount(parseInt(amount) + 1)}
-              >
-                +
-              </button>
-            </div>
-            <div className="price">
-              Rs. {amount * product.priceRange.minVariantPrice.amount}
-            </div>
-          </Form>
-          <AddButton onClick={handleAddToCart} color={product.color}>
-            Buy Now
-          </AddButton>
+      <Form>
+        <div className="field">
+          <button
+            className={`minus ${parseInt(amount) <= 1 ? "deactive" : null}`}
+            onClick={() => setAmount(parseInt(amount) - 1)}
+          >
+            -
+          </button>
+          <div className="input-wrapper">
+            <input
+              name="amount"
+              type="text"
+              value={amount}
+              onChange={handleChange}
+            />
+            <span className="kg">kg</span>
+          </div>
+          <button
+            className={`plus ${parseInt(amount) >= 5 ? "deactive" : null}`}
+            onClick={() => setAmount(parseInt(amount) + 1)}
+          >
+            +
+          </button>
         </div>
-      </Container>
+        <div className="price">
+          Rs. {amount * product.priceRange.minVariantPrice.amount}
+        </div>
+      </Form>
+      <AddButton onClick={handleAddToCart} color={product.color}>
+        Buy Now
+      </AddButton>
     </>
   )
 }
