@@ -5,12 +5,44 @@ import device from "../../device"
 const Wrapper = styled.div`
   margin-top: 4rem;
 
-  h4 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+  .description > * {
+    margin: 1rem 0;
   }
+
+  /* Headings */
+  h1 {
+  }
+  h2 {
+  }
+  h3 {
+  }
+  h4 {
+  }
+  h5 {
+  }
+  h6 {
+  }
+  /* Paragraph */
   p {
-    ${device.small`font-size: 0.9rem;`}
+  }
+  /* Image */
+  img {
+  }
+  /* Iframe */
+  iframe {
+    max-width: 100%;
+    display: block;
+  }
+  /* Lists */
+  ul {
+  }
+  ol {
+  }
+  /* Link */
+  a {
+    text-decoration: underline;
+    color: var(--green);
+    text-transform: none;
   }
 `
 

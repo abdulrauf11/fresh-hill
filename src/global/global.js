@@ -110,10 +110,10 @@ textarea {
   -webkit-appearance: none;
 }
 
-ul {
+/* ul {
   padding: 0;
   list-style-type: none;
-}
+} */
 
 a {
   text-decoration: none;

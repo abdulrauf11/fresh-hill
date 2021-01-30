@@ -7,16 +7,28 @@ import device from "../../device"
 
 const Container = styled.div`
   flex: 1;
-  height: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  min-height: 260px;
-  ${device.small`height: auto; padding: 3rem 0;`}
-  img {
-    height: 20rem;
-    ${device.medium`height: 12rem;`}
-    ${device.small`height: 10rem;`}
+  ${device.small`padding: 3rem 0;`}
+
+  &.image-wrapper {
+    min-height: 300px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    left: 0;
+    ${device.small`position: static;`}
+    img {
+      align-self: center;
+      height: 20rem;
+      ${device.medium`height: 12rem;`}
+      ${device.small`height: 10rem;`}
+    }
+  }
+
+  &.product-wrapper {
+    margin: 10rem 0;
+    ${device.small`margin: 5rem 0;`}
   }
 
   .middle {
@@ -25,8 +37,7 @@ const Container = styled.div`
     ${device.small`width: var(--spread);`}
 
     .title {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
     }
   }
 `
@@ -35,12 +46,12 @@ export default function ProductSingle({ product }) {
   return (
     <>
       <Container
-        isImage={true}
+        className="image-wrapper"
         style={{ background: `var(--${product.color}` }}
       >
         <img src={product.image} alt="Product" />
       </Container>
-      <Container>
+      <Container className="product-wrapper">
         <div className="middle">
           <h3 className="title">{product.title}</h3>
           <Form product={product} />

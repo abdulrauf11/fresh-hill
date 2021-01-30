@@ -13,18 +13,22 @@ const ProductSingle = loadable(() =>
 )
 
 const Wrapper = styled(animated.div)`
-  display: flex;
   position: fixed;
+  display: flex;
   top: 0;
   left: 0;
   z-index: 500;
   width: 100%;
   height: 100%;
   background: ${({ theme }) => theme.bg};
-  ${device.small`display: block; overflow-y: scroll;`}
+  overflow-y: auto;
+  ${device.small`display: block;`}
 `
 
 const Header = styled.div`
+  z-index: 1;
+  left: 0;
+  top: 0;
   position: absolute;
   width: 100%;
   padding: 2rem 0;
@@ -84,7 +88,7 @@ const ModalInner = ({ setIsModalActive, product }) => {
   )
 }
 
-const Modal = ({ product, setProduct }) => {
+const Modal = ({ product }) => {
   const [isModalActive, setIsModalActive] = useState(false)
 
   useEffect(() => {
