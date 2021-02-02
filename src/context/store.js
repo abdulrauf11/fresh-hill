@@ -94,7 +94,7 @@ export const StoreProvider = ({ children }) => {
     }
   }
 
-  const removeProductFromCart = async lineItemId => {
+  const removeProductFromCart = async (lineItemId) => {
     try {
       setLoading(true)
       const newCheckout = await client.checkout.removeLineItems(checkout.id, [

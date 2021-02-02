@@ -34,7 +34,7 @@ const Pages = styled.div`
   justify-content: space-around;
   align-items: center;
   ${device.small`width: 100%;`}
-  button {
+  .link {
     color: ${({ theme }) => theme.fg};
     font-family: "Lora";
     font-weight: 400;
@@ -43,7 +43,7 @@ const Pages = styled.div`
     text-transform: uppercase;
     ${device.small`margin-left: 0;`}
     position: relative;
-    &.link:after {
+    &:after {
       content: "";
       display: block;
       position: absolute;
@@ -58,9 +58,13 @@ const Pages = styled.div`
       transform-origin: 0 0;
       transition: transform 0.3s;
     }
-    &.link:hover:after {
+    &:hover:after {
       transform: scaleX(1);
     }
+  }
+
+  button {
+    margin-left: 3rem;
     svg {
       width: 1.56rem;
       height: 1.56rem;
@@ -69,7 +73,7 @@ const Pages = styled.div`
   }
 `
 
-const Header = ({ setActiveSection }) => {
+const Header = () => {
   const { toggleCartOpen } = useContext(StoreContext)
 
   return (
@@ -81,15 +85,15 @@ const Header = ({ setActiveSection }) => {
       </Logo>
 
       <Pages>
-        <button className="link" onClick={() => setActiveSection("about")}>
+        <Link className="link" to="/#about">
           About
-        </button>
-        <button className="link" onClick={() => setActiveSection("products")}>
+        </Link>
+        <Link className="link" to="/#products">
           Products
-        </button>
-        <button className="link" onClick={() => setActiveSection("contact")}>
+        </Link>
+        <Link className="link" to="/#contact">
           Contact
-        </button>
+        </Link>
         <button onClick={toggleCartOpen} aria-label="Cart">
           <Bucket />
         </button>

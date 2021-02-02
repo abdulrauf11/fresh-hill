@@ -46,14 +46,14 @@ const Wrapper = styled.div`
     left: 0;
     bottom: 0;
     width: calc(7.5rem / var(--divider));
-    animation: ${props => (props.inView ? animationLeft : "none")};
+    animation: ${(props) => (props.inView ? animationLeft : "none")};
     ${device.medium`bottom: 30%;`}
   }
   .cloud-2 {
     top: 0;
     right: calc(11.25rem + 6.25rem);
     width: calc(8.75rem / var(--divider));
-    animation: ${props => (props.inView ? animationLeft : "none")};
+    animation: ${(props) => (props.inView ? animationLeft : "none")};
     ${device.medium`display: none;`}
   }
   .cloud-3 {
@@ -61,7 +61,7 @@ const Wrapper = styled.div`
     transform: translateY(-50%);
     right: 0;
     width: calc(11.25rem / var(--divider));
-    animation: ${props => (props.inView ? animationRight : "none")};
+    animation: ${(props) => (props.inView ? animationRight : "none")};
   }
   .toggle {
     top: 0;

@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useContext } from "react"
 import { useTransition, animated } from "react-spring"
 import styled, { ThemeProvider } from "styled-components"
-import loadable from "@loadable/component"
-
 import Header from "./header"
 import Footer from "./footer"
 import { ThemeContext } from "../context/theme"
 import { lightTheme, darkTheme } from "../global/theme"
 import { GlobalStyles } from "../global/global"
-const Cart = loadable(() => import("./cart/cart"))
+import Cart from "./cart/cart"
 
 const Fixed = styled(animated.div)`
   position: fixed;
@@ -18,7 +16,7 @@ const Fixed = styled(animated.div)`
   background: ${({ theme }) => theme.bg};
 `
 
-const Layout = ({ children, setActiveSection }) => {
+const Layout = ({ children }) => {
   const { theme, componentMounted } = useContext(ThemeContext)
 
   const [prevScroll, setPrevScroll] = useState(0)
@@ -47,12 +45,12 @@ const Layout = ({ children, setActiveSection }) => {
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
-      <Header setActiveSection={setActiveSection} />
+      <Header />
       {transitions.map(
         ({ item, key, props }) =>
           item && (
             <Fixed key={key} style={props}>
-              <Header setActiveSection={setActiveSection}></Header>
+              <Header></Header>
             </Fixed>
           )
       )}

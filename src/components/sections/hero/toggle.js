@@ -29,12 +29,15 @@ const SVG = styled.svg`
 export default function Toggle({ className }) {
   const { theme, toggleTheme } = useContext(ThemeContext)
 
+
   const transitions = useTransition(theme, null, {
-    from: { transform: "translate3d(0,-400px,0)", opacity: 0 },
-    enter: { transform: "translate3d(0,0,0) rotate(0)", opacity: 1 },
-    leave: { transform: "translate3d(0,-400px,0)", opacity: 0 },
+    from: { transform: 'translate3d(0,-400px,0)', opacity: 0 },
+    enter: { transform: 'translate3d(0,0,0)', opacity: 1 },
+    leave: { transform: 'translate3d(0,-400px,0)', opacity: 0 },
     config: { mass: 1, tension: 150, friction: 15 },
   })
+
+  
 
   return transitions.map(({ item, key, props }) =>
     item === "light" ? (

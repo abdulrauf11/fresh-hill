@@ -63,7 +63,7 @@ const Empty = styled.div`
 function FilledCart({ checkout, removeProductFromCart }) {
   return (
     <>
-      {checkout.lineItems.map(item => (
+      {checkout.lineItems.map((item) => (
         <CartItem
           key={item.id}
           item={item}

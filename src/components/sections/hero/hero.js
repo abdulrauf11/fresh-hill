@@ -1,12 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import loadable from "@loadable/component"
-
 import device from "../../device"
 import LowerScene from "./lower-scene"
 import UpperScene from "./upper-scene"
-
-const Heading = loadable(() => import("./heading"))
+import Heading from "./heading"
 
 const Wrapper = styled.section`
   margin: 1rem auto;
