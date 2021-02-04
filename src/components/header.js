@@ -33,7 +33,7 @@ const Pages = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  ${device.small`width: 100%;`}
+  ${device.small`width: 100%; margin-top: 1rem;`}
   .link {
     color: ${({ theme }) => theme.fg};
     font-family: "Lora";

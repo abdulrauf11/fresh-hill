@@ -1,63 +1,58 @@
 import React from "react"
 import styled from "styled-components"
+import Img from "gatsby-image"
 
 import Form from "./form"
 import Description from "./description"
 import device from "../../device"
 
-const Container = styled.div`
-  flex: 1;
+const Wrapper = styled.section`
+  margin-top: 4rem;
   display: flex;
-  justify-content: center;
-  ${device.small`padding: 3rem 0;`}
-
-  &.image-wrapper {
-    min-height: 300px;
-    height: 100vh;
-    position: sticky;
-    top: 0;
-    left: 0;
-    ${device.small`position: static;`}
-    img {
-      align-self: center;
-      height: 20rem;
-      ${device.medium`height: 12rem;`}
-      ${device.small`height: 10rem;`}
-    }
+  ${device.small`flex-direction: column;`}
+  & > * {
+    flex: 1;
   }
 
-  &.product-wrapper {
-    margin: 10rem 0;
-    ${device.small`margin: 5rem 0;`}
+  .image-wrapper {
+    text-align: center;
+    .sticky {
+      position: sticky;
+      top: 8rem;
+    }
+    .image {
+      width: 10rem;
+      height: 14rem;
+      width: clamp(calc(5rem * 2), calc(5vw * 4), calc(5rem * 4));
+      height: clamp(calc(7rem * 2), calc(7vw * 4), calc(7rem * 4));
+    }
+    ${device.small`margin-bottom: 4rem;`}
   }
 
-  .middle {
-    width: 70%;
-    ${device.medium`width: 80%;`}
-    ${device.small`width: var(--spread);`}
-
-    .title {
-      font-size: 2.5rem;
-    }
+  h1 {
+    font-size: 3rem;
   }
 `
 
 export default function ProductSingle({ product }) {
   return (
-    <>
-      <Container
-        className="image-wrapper"
-        style={{ background: `var(--${product.color}` }}
-      >
-        <img src={product.image} alt="Product" />
-      </Container>
-      <Container className="product-wrapper">
-        <div className="middle">
-          <h3 className="title">{product.title}</h3>
-          <Form product={product} />
-          <Description content={product.descriptionHtml} />
-        </div>
-      </Container>
-    </>
+    <Wrapper>
+      <div className="image-wrapper">
+        {product.images.length && (
+          <div className="sticky">
+            <Img
+              className="image"
+              fixed={product.images[0].localFile.childImageSharp.fluid}
+            />
+          </div>
+        )}
+      </div>
+
+      <div>
+        <h1>{product.title}</h1>
+        <Form product={product} />
+        <Description content={product.descriptionHtml} />
+      </div>
+    </Wrapper>
   )
 }

@@ -2,16 +2,14 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { useSpring, animated as a } from "react-spring"
+import Img from "gatsby-image"
 
 import device from "../device"
 
 const Item = styled(a.div)`
-  height: 90vh;
-  max-height: 40rem;
   text-align: center;
   position: relative;
   will-change: transform;
-  ${device.small`height: 30rem;`}
   &:after {
     position: absolute;
     bottom: 1.5rem;
@@ -34,20 +32,21 @@ const Item = styled(a.div)`
     height: 100%;
   }
 
-  svg {
-    width: 100%;
+  .image {
     margin: 4rem 0;
-    height: 12.5rem;
-    ${device.small`height: 8.5rem; margin: 3rem 0;`}
-    ${device.large`margin-top: 6rem;`}
+    width: calc(5rem * 2);
+    height: calc(7rem * 2);
   }
 `
 
 const Text = styled.div`
+  margin-bottom: 8rem;
   h3 {
     font-size: 1.5rem;
   }
   p {
+    text-transform: none;
+    font-family: "Open Sans", sans-serif;
     font-size: 0.9rem;
     width: 65%;
     margin: 0.5rem auto;
@@ -79,6 +78,12 @@ const ProductCard = ({ node, className }) => {
       style={{ transform: props.xy.interpolate(trans) }}
     >
       <Link to={node.productPath}>
+        {node.images.length && (
+          <Img
+            className="image"
+            fixed={node.images[0].localFile.childImageSharp.fluid}
+          />
+        )}
         <Text>
           <h3>{node.title}</h3>
           <p>{node.description}</p>

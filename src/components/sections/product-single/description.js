@@ -47,6 +47,7 @@ const Wrapper = styled.div`
 `
 
 export default function Description({ content }) {
+  console.log(content)
   return (
     <Wrapper>
       <div

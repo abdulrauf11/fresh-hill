@@ -2,15 +2,14 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
+import ProductSingle from "../../components/sections/product-single/product-single"
 
 export default function Product({ data }) {
   const product = data.shopifyProduct
   return (
     <Layout>
       <SEO title={`${product.title} | Bin Aziz`} />
-      <section>
-        <h1>{product.title}</h1>
-      </section>
+      <ProductSingle product={product} />
     </Layout>
   )
 }
@@ -22,6 +21,26 @@ export const query = graphql`
   query($id: String) {
     shopifyProduct(id: { eq: $id }) {
       title
+      variants {
+        shopifyId
+      }
+      title
+      description
+      descriptionHtml
+      images {
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 500) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
+        }
+      }
+      priceRange {
+        minVariantPrice {
+          amount
+        }
+      }
     }
   }
 `

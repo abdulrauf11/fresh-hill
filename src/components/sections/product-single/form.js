@@ -52,13 +52,13 @@ const AddButton = styled.button`
   width: 100%;
   display: block;
   padding: 1rem 0;
-  background: ${props =>
+  background: ${(props) =>
     props.color === "green" ? "var(--green)" : "var(--yellow)"};
-  color: ${props =>
+  color: ${(props) =>
     props.color === "green" ? "var(--white)" : "var(--black)"};
   position: relative;
   border: 2px solid
-    ${props => (props.color === "green" ? "var(--green)" : "var(--yellow)")};
+    ${(props) => (props.color === "green" ? "var(--green)" : "var(--yellow)")};
   transition: all 0.2s;
   &:hover {
     color: ${({ theme }) => theme.fg};
@@ -72,7 +72,7 @@ const AddButton = styled.button`
     width: 100%;
     height: 100%;
     border: 2px solid
-      ${props => (props.color === "green" ? "var(--green)" : "var(--yellow)")};
+      ${(props) => (props.color === "green" ? "var(--green)" : "var(--yellow)")};
   }
   &:hover:after {
     animation: fade-out 0.5s ease-out;
@@ -97,6 +97,9 @@ export default function ProductSingle({ product }) {
   return (
     <>
       <Form>
+        <div className="price">
+          Rs. {amount * product.priceRange.minVariantPrice.amount}
+        </div>
         <div className="field">
           <button
             className={`minus ${parseInt(amount) <= 1 ? "deactive" : null}`}
@@ -119,9 +122,6 @@ export default function ProductSingle({ product }) {
           >
             +
           </button>
-        </div>
-        <div className="price">
-          Rs. {amount * product.priceRange.minVariantPrice.amount}
         </div>
       </Form>
       <AddButton onClick={handleAddToCart} color={product.color}>

@@ -25,14 +25,22 @@ const Products = () => {
               shopifyId
             }
             title
+            description
             descriptionHtml
+            images {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 500) {
+                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                  }
+                }
+              }
+            }
             priceRange {
               minVariantPrice {
                 amount
               }
             }
-            handle
-
             productPath: gatsbyPath(
               filePath: "/products/{ShopifyProduct.title}"
             )
@@ -47,7 +55,11 @@ const Products = () => {
       <h2>Our Products</h2>
       <Grid>
         {data.allShopifyProduct.edges.map(({ node }, index) => (
-          <ProductCard className={index % 2 ? "yellow" : "green"} node={node} />
+          <ProductCard
+            key="index"
+            className={index % 2 ? "yellow" : "green"}
+            node={node}
+          />
         ))}
       </Grid>
     </Wrapper>
