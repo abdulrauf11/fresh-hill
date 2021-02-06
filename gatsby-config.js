@@ -4,10 +4,10 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Fresh Hill`,
+    title: `Bin Aziz`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@rauftech`,
-    siteUrl: `https://www.fresh-hill.netlify.com`,
+    siteUrl: `https://www.bin-aziz.netlify.com`,
   },
   plugins: [
     `gatsby-plugin-robots-txt`,
@@ -41,10 +41,10 @@ module.exports = {
       resolve: `gatsby-source-shopify`,
       options: {
         // The domain name of your Shopify shop.
-        shopName: `fresh-hill`,
+        shopName: `bin-aziz`,
         // The storefront access token
         accessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
-        apiVersion: "2020-01",
+        apiVersion: "2021-01",
         includeCollections: ["shop"],
       },
     },

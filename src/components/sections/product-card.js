@@ -81,7 +81,7 @@ const ProductCard = ({ node, className }) => {
         {node.images.length && (
           <Img
             className="image"
-            fixed={node.images[0].localFile.childImageSharp.fluid}
+            fluid={node.images[0].localFile.childImageSharp.fluid}
           />
         )}
         <Text>

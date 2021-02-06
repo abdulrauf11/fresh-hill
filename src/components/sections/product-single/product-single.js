@@ -42,7 +42,7 @@ export default function ProductSingle({ product }) {
           <div className="sticky">
             <Img
               className="image"
-              fixed={product.images[0].localFile.childImageSharp.fluid}
+              fluid={product.images[0].localFile.childImageSharp.fluid}
             />
           </div>
         )}
