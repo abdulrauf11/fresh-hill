@@ -7,7 +7,7 @@ import ProductSingle from "../../components/sections/product-single/product-sing
 export default function Product({ data }) {
   const product = data.shopifyProduct
   return (
-    <Layout>
+    <Layout border={true}>
       <SEO title={`${product.title} | Bin Aziz`} />
       <ProductSingle product={product} />
     </Layout>

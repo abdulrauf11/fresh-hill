@@ -124,7 +124,7 @@ export default function ProductSingle({ product }) {
           </button>
         </div>
       </Form>
-      <AddButton onClick={handleAddToCart} color={product.color}>
+      <AddButton onClick={handleAddToCart} color={"green"}>
         Buy Now
       </AddButton>
     </>

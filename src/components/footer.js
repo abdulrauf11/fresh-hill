@@ -4,6 +4,8 @@ import styled from "styled-components"
 import cow from "../images/logo.svg"
 
 const Container = styled.footer`
+  border-top: ${(props) =>
+    props.border ? "1px solid var(--skeleton)" : "none"};
   width: var(--spread);
   max-width: var(--limit);
   margin: 0 auto;
@@ -31,8 +33,8 @@ const Logo = styled.div`
   }
 `
 
-const Footer = () => (
-  <Container>
+const Footer = ({ border = false }) => (
+  <Container border={border}>
     <div>
       Website by{" "}
       <a

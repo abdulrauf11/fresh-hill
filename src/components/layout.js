@@ -16,7 +16,7 @@ const Fixed = styled(animated.div)`
   background: ${({ theme }) => theme.bg};
 `
 
-const Layout = ({ children }) => {
+const Layout = ({ children, border }) => {
   const { theme, componentMounted } = useContext(ThemeContext)
 
   const [prevScroll, setPrevScroll] = useState(0)
@@ -56,7 +56,7 @@ const Layout = ({ children }) => {
       )}
       <Cart />
       <main>{children}</main>
-      <Footer />
+      <Footer border={border} />
     </ThemeProvider>
   )
 }

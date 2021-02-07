@@ -33,7 +33,7 @@ const Item = styled(a.div)`
   }
 
   .image {
-    margin: 4rem 0;
+    margin: 4rem auto;
     width: calc(5rem * 2);
     height: calc(7rem * 2);
   }
