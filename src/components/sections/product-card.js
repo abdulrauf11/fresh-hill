@@ -34,8 +34,8 @@ const Item = styled(a.div)`
 
   .image {
     margin: 4rem auto;
-    width: calc(5rem * 2);
-    height: calc(7rem * 2);
+    width: 12rem;
+    height: auto;
   }
 `
 
@@ -70,6 +70,12 @@ const ProductCard = ({ node, className }) => {
     config: { mass: 8, tension: 350, friction: 40 },
   }))
 
+  const imgSrc = node.images.length
+    ? node.images.length > 1
+      ? node.images[1]
+      : node.images[0]
+    : null
+
   return (
     <Item
       className={`grid-item ${className}`}
@@ -78,10 +84,10 @@ const ProductCard = ({ node, className }) => {
       style={{ transform: props.xy.interpolate(trans) }}
     >
       <Link to={node.productPath}>
-        {node.images.length && (
+        {imgSrc && (
           <Img
             className="image"
-            fluid={node.images[0].localFile.childImageSharp.fluid}
+            fluid={imgSrc.localFile.childImageSharp.fluid}
           />
         )}
         <Text>

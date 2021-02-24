@@ -57,7 +57,7 @@ const Products = () => {
         {data.allShopifyProduct.edges.map(({ node }, index) => (
           <ProductCard
             key={index}
-            className={index % 2 ? "yellow" : "green"}
+            className={index % 2 ? "green" : "yellow"}
             node={node}
           />
         ))}
