@@ -2,11 +2,10 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { useSpring, animated as a } from "react-spring"
-import Img from "gatsby-image"
-
+import Img from "gatsby-image/withIEPolyfill"
 import device from "../device"
 
-const Item = styled(a.div)`
+const Item = styled(a(Link))`
   text-align: center;
   position: relative;
   will-change: transform;
@@ -33,9 +32,9 @@ const Item = styled(a.div)`
   }
 
   .image {
-    margin: 4rem auto;
+    margin: 4rem auto 4rem auto;
     width: 12rem;
-    height: auto;
+    height: 12rem;
   }
 `
 
@@ -78,23 +77,25 @@ const ProductCard = ({ node, className }) => {
 
   return (
     <Item
+      to={node.productPath}
       className={`grid-item ${className}`}
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
       onMouseLeave={() => set({ xy: [0, 0] })}
       style={{ transform: props.xy.interpolate(trans) }}
     >
-      <Link to={node.productPath}>
-        {imgSrc && (
-          <Img
-            className="image"
-            fluid={imgSrc.localFile.childImageSharp.fluid}
-          />
-        )}
-        <Text>
-          <h3>{node.title}</h3>
-          <p>{node.description}</p>
-        </Text>
-      </Link>
+      {/* <Link to={node.productPath}> */}
+      {imgSrc && (
+        <Img
+          className="image"
+          fluid={imgSrc.localFile.childImageSharp.fluid}
+          objectFit="contain"
+        />
+      )}
+      <Text>
+        <h3>{node.title}</h3>
+        <p>{node.description}</p>
+      </Text>
+      {/* </Link> */}
     </Item>
   )
 }
