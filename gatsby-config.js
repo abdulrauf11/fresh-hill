@@ -4,10 +4,10 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Bin Aziz`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@rauftech`,
-    siteUrl: `https://www.bin-aziz.netlify.com`,
+    title: `Bin Aziz Organic`,
+    description: `Bin Aziz Organic is your number one source for 100% pure Desi Ghee and Makhan`,
+    author: `@binaziz_organicfood`,
+    siteUrl: `https://www.binazizorganic.netlify.com`,
   },
   plugins: [
     `gatsby-plugin-robots-txt`,
@@ -46,6 +46,15 @@ module.exports = {
         accessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
         apiVersion: "2021-01",
         includeCollections: ["shop"],
+      },
+    },
+    // Tracking
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-3ZD6872PLK", // Google Analytics / GA
+        ],
       },
     },
   ],
